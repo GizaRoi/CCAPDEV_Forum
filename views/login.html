@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In</title>
+
+    <style>
+
+:root {
+    --background-color: #171820;
+    --secondary-color: #262731;
+    --accent-color: #a071cf;
+    --secondary-text: #a8a8aa;
+}
+
+body {
+    background-color: var(--background-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.close-button{
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px;
+}
+
+.wrapper {
+    border: 1px solid black;
+    background-color: var(--secondary-color);
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-box {
+    padding: 0px 30px;
+}
+
+.logo {
+    color: var(--accent-color);
+}
+
+.welcome-msg {
+    margin: 15px 0 20px 0;
+}
+
+.welcome-msg h3 {
+    color: whitesmoke;
+    font-weight: 100;
+}
+
+.welcome-msg h4 {
+    color: var(--secondary-text);
+    font-weight: 100;
+    font-size: smaller;
+}
+
+.welcome-msg a {
+    color: var(--accent-color);
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    flex-direction: column;
+}
+
+.input-box input{
+    padding: 10px;
+    padding-right: 35px; /* Add padding to the right to make space for the icon */
+    border: none;
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: #fff;
+}
+
+.input-box input:focus {
+    border-color: var(--accent-color);
+}
+
+.input-box label {
+    color: whitesmoke;
+    font-weight: 100;
+    font-size: small;
+}
+
+.checkbox-content {
+    color: whitesmoke;
+    font-weight: 100;
+    font-size: smaller;
+}
+
+.checkbox-content input {
+    accent-color: var(--accent-color);
+    margin: 0 8px 0 4px;
+}
+
+.submit-box {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-box button {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: whitesmoke;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+
+    
+    
+    <div class="wrapper">
+
+        <span class="close-button">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+
+        <div class="form-box">
+
+            <div class="logo"><h1>KetAno<em>?</em></h1></div>
+
+            <div class="welcome-msg">
+                <h3>Welcome back to KetAno.</h3>
+                <h4>New Here? <a href="#">Create an account</a></h4>
+            </div>
+
+            <form action="" class="input-group">
+
+                <div class="input-box">
+                    <label for="">Username</label>
+                    <input type="username" class="input-field">
+                </div>
+
+                <div class="input-box">
+                    <label for="">Password</label>
+                    <input type="password" class="input-field">
+                </div>
+
+                <div class="checkbox-content">
+                    <label><input type="checkbox">Remember this device</label>
+                </div>
+
+                <div class="submit-box">
+                    <button type= "submit" class="button">Sign In</button>
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+         
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
