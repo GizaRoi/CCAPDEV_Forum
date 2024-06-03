@@ -1,0 +1,25 @@
+{
+  "name": "ccapdev_forum",
+  "version": "1.0.0",
+  "description": "Major Course Output for Web Application Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GizaRoi/CCAPDEV_Forum.git"
+  },
+  "keywords": [
+    "Web",
+    "Application",
+    "Web",
+    "Forum"
+  ],
+  "author": "Bilbao, Llenarez, Velasquez, Vuelva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GizaRoi/CCAPDEV_Forum/issues"
+  },
+  "homepage": "https://github.com/GizaRoi/CCAPDEV_Forum#readme"
+}
