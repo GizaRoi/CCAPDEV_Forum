@@ -93,6 +93,9 @@
             .votes *{
                 margin: 5px;
             }
+            .downvote{
+                color: var(--secondary-text); 
+            }
             .post-footer{
                 margin-top: 10px;
                 display: flex;
@@ -108,18 +111,67 @@
             .editdelete a{
                 margin-right: 5px;
             }
+            .reply-container{
+                margin: 10px;
+                padding: 10px;
+                background-color: var(--secondary-color);
+                width: 50%;
+                min-width: 600px;
+                border-radius: 12px;
+            }
+            #replylabel{
+                text-align: left;
+                font-weight: 1000;
+                font-size: 25px;
+                margin: 10px;
+            }
+            #reply{
+                margin: 10px;
+                width: 96%;
+                resize: none;
+                background-color: var(--background-color);
+                border: 0px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            .replyarea{
+                margin: 10px;
+            }
+            #submitreply{
+                background-color: var(--background-color);
+                border: 0px;
+                padding: 7px;
+                padding-left: 15px;
+                padding-right: 15px;
+                border-radius: 5px;
+                margin: 13px;
+                margin-top: -2px;
+                margin-bottom: 0px;
+                font-size: 20px;
+                font-weight: 600;
+                text-align: center;
+            }
+            #submitreply-container{
+                display: flex;
+                justify-content: end;
+            }
+            .replies{
+
+            }
         </style>
     </head>
     <body>
         <div class="post-container">
-            <span class="return"><ion-icon name="return-up-back-outline"></ion-icon></span>
+            <a href="home.html"><span class="return"><ion-icon name="return-up-back-outline"></ion-icon></span></a>
             <div class="post-header">
                 <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
                 <div class="post-info">
                     <div class="op-username">by <a href="profile.html">@juan01</a> • June 4, 2024</div>
                     <div class="room">
                         <img id="fr1" src="images/FRdelozol.jpg"/>
-                        fr/DeLozol
+                        <span class="roomname">fr/DeLozol</span>
                     </div>
                 </div>
             </div>
@@ -131,14 +183,29 @@
             </div>
             <div class="post-footer">
                 <div class="votes">
-                    <ion-icon name="chevron-up-outline"></ion-icon> 402
-                    <ion-icon name="chevron-down-outline"></ion-icon> 96
+                    <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">402</span>
+                    <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">96</span>
+                    <ion-icon name="chatbubble-outline"></ion-icon><span class="replynum">5</span>
                 </div>
+
                 <div class="editdelete">
                     <a href="editpost.html">Edit</a> 
                     <span class="delete">Delete</span>
                 </div>
             </div>
+        </div>
+        <div class="reply-container">
+            <div class="replyarea">
+                <form>
+                    <textarea name="reply" id="reply"></textarea>
+                    <div id="submitreply-container">
+                        <input id="submitreply" type="submit" value="Reply">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="replies">
+
         </div>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
