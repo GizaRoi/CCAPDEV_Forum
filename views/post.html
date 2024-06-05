@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <title>Post | FoRoom</title>
+        <style>
+            :root {
+                --background-color: #171820;
+                --secondary-color: #262731;
+                --accent-color: #a071cf;
+                --secondary-text: #a8a8aa;
+            }
+            * {
+                font-family: 'Poppins', sans-serif;
+                color: whitesmoke;
+            }
+            .return{
+                display: flex;
+                justify-content: flex-end;
+            }
+            body {
+                background-color: var(--background-color);
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0px;
+                position: relative;
+                overflow: hidden;
+            }
+            .post-container{
+                display: flex;
+                justify-content: left;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                margin-top: 50px;
+                padding: 10px;
+                border-radius: 12px;
+                width: 50%;
+                min-width: 600px;
+            }
+            .post-header{
+                display: flex;
+                margin-left: 10px;
+            }
+            #pfp5{
+                height: 70px;
+                border-radius: 100%;
+                float: left;
+            }
+            #fr1{
+                height: 25px;
+                border-radius: 100%;
+            }
+            .room{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+            }
+            .room *{
+                margin: 8px;
+                margin-bottom: 4px;
+            }
+            .op-username{
+                margin: 7px;
+                color: var(--secondary-text)
+            }
+            .post-title{
+                font-weight: 600;
+                font-size: 30px;
+                margin: 15px;
+            }
+            .post-content{
+                margin: 5px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                line-height: 1.7;
+                font-size: 14px;
+            }
+            ion-icon{
+                color: whitesmoke;
+                font-size: 25px;
+            }
+            .votes{
+                display: flex;
+                margin: 5px;
+                font-weight: 1000;
+                align-items: center;
+                background-color: var(--background-color);
+                border-radius: 500px;
+                width: fit-content;
+                padding-right: 12px;
+                justify-content: flex-start;
+            }
+            .votes *{
+                margin: 5px;
+            }
+            .post-footer{
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .editdelete{
+                margin-right: 10px;
+                font-size: 12px;
+                color: var(--secondary-text);
+            }
+            .editdelete a{
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="post-container">
+            <span class="return"><ion-icon name="return-up-back-outline"></ion-icon></span>
+            <div class="post-header">
+                <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
+                <div class="post-info">
+                    <div class="op-username">by <a href="profile.html">@juan01</a> • June 4, 2024</div>
+                    <div class="room">
+                        <img id="fr1" src="images/FRdelozol.jpg"/>
+                        fr/DeLozol
+                    </div>
+                </div>
+            </div>
+            <div class="post-content">
+                <div class="post-title">The DOTA2 situation is so nakakahiya</div>
+                <div class="post-content">I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are 
+                    calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.
+                </div>
+            </div>
+            <div class="post-footer">
+                <div class="votes">
+                    <ion-icon name="chevron-up-outline"></ion-icon> 402
+                    <ion-icon name="chevron-down-outline"></ion-icon> 96
+                </div>
+                <div class="editdelete">
+                    <a href="editpost.html">Edit</a> 
+                    <span class="delete">Delete</span>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
