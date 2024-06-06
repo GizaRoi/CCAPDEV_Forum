@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upon Register - customize</title>
+    <title>Upon Register - Customize</title>
 
     <style>
         :root {
@@ -61,6 +61,7 @@
             color: whitesmoke;
             font-weight: 100;
             margin-bottom: 8px;
+            text-align: center;
         }
 
         .welcome-msg h5 {
@@ -68,6 +69,7 @@
             font-weight: 100;
             font-size: smaller;
             margin-bottom: 16px;
+            text-align: center;
         }
 
         .prof-images {
@@ -90,6 +92,9 @@
             color: whitesmoke;
             font-weight: 100;
             font-size: small;
+            text-align: center;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .bio-box textarea {
@@ -127,6 +132,11 @@
             font-size: 16px;
         }
 
+        .next-button button a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
         .password-icon {
             position: absolute;
             color: whitesmoke;
@@ -135,24 +145,41 @@
             top: 358px;
         }
 
-        ion-icon{
+        ion-icon {
             color: white;
         }
 
-        .upload-photo button{
-            width: 100%;
+        .upload-photo {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            margin: 16px 0;
+        }
+
+        .upload-photo button {
             background-color: rgba(160, 113, 207, 0.422);
             color: whitesmoke;
             border: none;
             padding: 10px;
             cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 50px;
             font-size: smaller;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center text horizontally and vertically */
+            text-align: center;
         }
 
-        .upload-photo{
-            margin: 16px 0px 16px 0px;
+        .centered-text {
+            text-align: center;
+            margin: 16px 0; /* Adjust margin for spacing */
+        }
+
+        .centered-text span {
+            color: whitesmoke;
+            font-size: small;
+            display: block;
         }
     </style>
 </head>
@@ -168,9 +195,11 @@
                 <h5>Customize your account so your roomies know it's you.</h5>
             </div>
             <div class="upload-photo">
-                <button>+ uploud photo</button>
+                <button>+ upload photo</button>
             </div>
-            <span style="color: whitesmoke; font-size: small;">Suggested Photos</span>
+            <div class="centered-text">
+                <span>or you can choose from these avatars!</span>
+            </div>
             <div class="prof-images">
                 <img src="images/prof-1.png" alt="Profile 1">
                 <img src="images/prof-2.png" alt="Profile 2">
@@ -179,7 +208,7 @@
                 <img src="images/prof-5.png" alt="Profile 5">
             </div>
             <div class="bio-box">
-                <span style="color: whitesmoke; font-size: small;">Add Bio</span>
+                <span>Add Bio</span>
                 <textarea name="bio" placeholder="Write something about yourself..."></textarea>
             </div>
             <div class="next-button">
