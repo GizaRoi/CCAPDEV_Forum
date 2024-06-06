@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-In</title>
+    <title>Upon Register - customize</title>
 
     <style>
         :root {
             --background-color: #171820;
             --secondary-color: #262731;
-            --accent-color: #a071cf;
+            --accent-color: rgb(160, 113, 207);
             --secondary-text: #a8a8aa;
         }
 
@@ -23,13 +23,13 @@
             margin: 0;
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
         }
 
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         .close-button {
@@ -102,6 +102,7 @@
             color: #fff;
             margin-top: 8px;
             resize: none;
+            font-size: small;
         }
 
         .bio-box textarea:focus {
@@ -133,8 +134,25 @@
             right: 45px;
             top: 358px;
         }
+
         ion-icon{
             color: white;
+        }
+
+        .upload-photo button{
+            width: 100%;
+            background-color: rgba(160, 113, 207, 0.422);
+            color: whitesmoke;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            font-size: smaller;
+        }
+
+        .upload-photo{
+            margin: 16px 0px 16px 0px;
         }
     </style>
 </head>
@@ -149,7 +167,10 @@
                 <h3>Welcome to FoRoom, @Juan01</h3>
                 <h5>Customize your account so your roomies know it's you.</h5>
             </div>
-            <span style="color: var(--secondary-text); font-size: small;">Select Profile Pic</span>
+            <div class="upload-photo">
+                <button>+ uploud photo</button>
+            </div>
+            <span style="color: whitesmoke; font-size: small;">Suggested Photos</span>
             <div class="prof-images">
                 <img src="images/prof-1.png" alt="Profile 1">
                 <img src="images/prof-2.png" alt="Profile 2">
@@ -158,11 +179,11 @@
                 <img src="images/prof-5.png" alt="Profile 5">
             </div>
             <div class="bio-box">
-                <span>Add Bio</span>
+                <span style="color: whitesmoke; font-size: small;">Add Bio</span>
                 <textarea name="bio" placeholder="Write something about yourself..."></textarea>
             </div>
             <div class="next-button">
-                <button>Next</button>
+                <button><a href="home.html">Next</a></button>
             </div>
         </div>
     </div>
