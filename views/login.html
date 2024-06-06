@@ -136,16 +136,19 @@ body {
     border-radius: 4px;
 }
 
+.submit-box button a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 
 .password-icon{
     position: absolute;
     color: whitesmoke;
     cursor: pointer;
     right: 45px;
-    top: 358px;
+    top: 365px;
 }
-
-
 
 
     </style>
@@ -158,7 +161,7 @@ body {
     <div class="wrapper">
 
         <span class="close-button">
-            <ion-icon name="close-outline"></ion-icon>
+            <a href="home.html"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
         <div class="form-box">
@@ -188,7 +191,7 @@ body {
                 </div>
 
                 <div class="submit-box">
-                    <button type= "submit" class="button">Sign In</button>
+                    <button type= "submit" class="button"><a href="home.html">Sign In</a></button>
                 </div>
 
 
@@ -218,6 +221,7 @@ body {
                 eyeIcon.setAttribute('name', 'eye-outline');
             }
         });
+
       </script>
 
 </body>

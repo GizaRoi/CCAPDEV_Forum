@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,10 +146,8 @@ body {
     color: whitesmoke;
     cursor: pointer;
     right: 45px;
-    top: 358px;
+    top: 368px;
 }
-
-
 
 
     </style>
@@ -163,12 +160,12 @@ body {
     <div class="wrapper">
 
         <span class="close-button">
-            <ion-icon name="close-outline"></ion-icon>
+            <a href="home.html"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
         <div class="form-box">
 
-            <div class="logo"><img src="/./images/1.png"></div>
+            <div class="logo"><img src="images/1.png"></div>
 
             <div class="welcome-msg">
                 <h3>Let's Get Started.</h3>
@@ -185,13 +182,13 @@ body {
                 <div class="input-box">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="input-field" name="password" required>
-                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-outline"></ion-icon></i>
+                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
                 </div>
 
                 <div class="input-box">
                     <label for="password">Confirm Password</label>
                     <input type="password" id="password" class="input-field" name="password" required>
-                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-outline"></ion-icon></i>
+                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
                 </div>
 
                 <div class="checkbox-content">
@@ -217,13 +214,19 @@ body {
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
-    
-        togglePassword.addEventListener('click', function(e) {
-          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-          password.setAttribute('type', type);
-    
-          // Optional: Add logic to change the icon class (e.g., fa-eye-slash) here
+        const eyeIcon = togglePassword.querySelector('ion-icon');
+
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            if (type === 'password') {
+                eyeIcon.setAttribute('name', 'eye-off-outline');
+            } else {
+                eyeIcon.setAttribute('name', 'eye-outline');
+            }
         });
+        
       </script>
 
 </body>

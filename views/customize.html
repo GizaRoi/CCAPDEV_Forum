@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-In</title>
+    <title>Upon Register - Customize</title>
 
     <style>
         :root {
             --background-color: #171820;
             --secondary-color: #262731;
-            --accent-color: #a071cf;
+            --accent-color: rgb(160, 113, 207);
             --secondary-text: #a8a8aa;
         }
 
@@ -23,13 +23,13 @@
             margin: 0;
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
         }
 
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         .close-button {
@@ -61,6 +61,7 @@
             color: whitesmoke;
             font-weight: 100;
             margin-bottom: 8px;
+            text-align: center;
         }
 
         .welcome-msg h5 {
@@ -68,6 +69,7 @@
             font-weight: 100;
             font-size: smaller;
             margin-bottom: 16px;
+            text-align: center;
         }
 
         .prof-images {
@@ -90,6 +92,9 @@
             color: whitesmoke;
             font-weight: 100;
             font-size: small;
+            text-align: center;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .bio-box textarea {
@@ -102,6 +107,7 @@
             color: #fff;
             margin-top: 8px;
             resize: none;
+            font-size: small;
         }
 
         .bio-box textarea:focus {
@@ -126,6 +132,11 @@
             font-size: 16px;
         }
 
+        .next-button button a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
         .password-icon {
             position: absolute;
             color: whitesmoke;
@@ -133,8 +144,42 @@
             right: 45px;
             top: 358px;
         }
-        ion-icon{
+
+        ion-icon {
             color: white;
+        }
+
+        .upload-photo {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            margin: 16px 0;
+        }
+
+        .upload-photo button {
+            background-color: rgba(160, 113, 207, 0.422);
+            color: whitesmoke;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: smaller;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center text horizontally and vertically */
+            text-align: center;
+        }
+
+        .centered-text {
+            text-align: center;
+            margin: 16px 0; /* Adjust margin for spacing */
+        }
+
+        .centered-text span {
+            color: whitesmoke;
+            font-size: small;
+            display: block;
         }
     </style>
 </head>
@@ -149,7 +194,12 @@
                 <h3>Welcome to FoRoom, @Juan01</h3>
                 <h5>Customize your account so your roomies know it's you.</h5>
             </div>
-            <span style="color: var(--secondary-text); font-size: small;">Select Profile Pic</span>
+            <div class="upload-photo">
+                <button>+ upload photo</button>
+            </div>
+            <div class="centered-text">
+                <span>or you can choose from these avatars!</span>
+            </div>
             <div class="prof-images">
                 <img src="images/prof-1.png" alt="Profile 1">
                 <img src="images/prof-2.png" alt="Profile 2">
@@ -162,7 +212,7 @@
                 <textarea name="bio" placeholder="Write something about yourself..."></textarea>
             </div>
             <div class="next-button">
-                <button>Next</button>
+                <button><a href="home.html">Next</a></button>
             </div>
         </div>
     </div>
