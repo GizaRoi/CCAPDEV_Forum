@@ -130,21 +130,23 @@
         margin-top: 3px;
     }
 
-    #popularposts{
+    .popular-posts{
         display: flex;
-        flex-direction: row;
+        margin: 10px;
+        padding: 15px;
+        list-style: none;
+        overflow-x: scroll;  
+        scrollbar-width:1px;
     }
 
-    .carousel-inner, .carousel-item{
-        display: flex;
-        flex-direction: row;
-        margin-right:1px;
-    }
-
-    .carousel-item img{
-        margin-top: 20px;
-        margin-left: 20px;
-        border-radius: 20px;
+    .popular-content{
+        display: block;
+        text-align: left;
+        width: 400px;
+  
+        background-color: var(--secondary-text);
+        border-radius: 5px;
+        margin: 10px;
     }
 
     .captions{
@@ -155,7 +157,8 @@
         position: absolute; 
         bottom: 10px; 
         left: 10px; 
-       margin-left: 15px;
+        margin-left: 15px;
+        width: 300px;
     }
 
     .captions h5,
@@ -271,60 +274,95 @@
             </div>
 
             <div class="top-body">
-                <div id="popularposts" class="carousel slide" data-bs-ride="carousel">
-                   <div class="Title">What's popular <br />
-                    <div class="carousel-inner">
-                        <i class="bi bi-arrow-left-short" style="margin-top: 85px; margin-left: 20px; color: whitesmoke; font-size: 60px;"></i>
-                        <div class="carousel-item">
-                            <a href="#" style="position: relative; display: inline-block;"><img src="https://marvel-b1-cdn.bc0a.com/f00000000163918/www.care.org/wp-content/uploads/2023/10/RS106661_GAZA_1-scr.webp" width="250px" alt="Image 1">
-                                <div class="captions">
-                                    <h5><strong>Happening today!</strong></h5>
-                                    <h6>The people of Gaza...</h6>
-                                    <div class="profile-img-cap">
-                                        <img src="sample.jpg">  
-                                            <span class="room-name">
-                                                f/worldnews
-                                            </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
-                        <div class="carousel-item">
-                            <a href="#"><img src="https://www.billboard.com/wp-content/uploads/2024/05/Demon-Slayer-Hashira-Training-Crunchyroll-Featured.jpg?w=942&h=623&crop=1" width="250px" alt="Image 2">
-                                <div class="captions">
-                                    <h5><strong>Happening today!</strong></h5>
-                                    <h6>The people of Gaza...</h6>
-                                    <div class="profile-img-cap">
-                                        <img src="sample.jpg">  
-                                            f/worldnews
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="https://external-preview.redd.it/1bc0NlTDV6v8bUHiAb6U678ShjcN9gepe9TYNP4ZUY8.jpg?auto=webp&s=0347647e3a931149b68cee6c1081b79f28c0924b" width="250px" alt="Image 3">
-                                <div class="captions">
-                                    <h5><strong>Happening today!</strong></h5>
-                                    <h6>The people of Gaza...</h6>
-                                    <div class="profile-img-cap">
-                                        <img src="sample.jpg">  
-                                            f/worldnews
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                       
-                        
-                        <i class="bi bi-arrow-right-short" style="margin-top: 85px; margin-left: 10px; margin-right: 20px; color: whitesmoke; font-size: 60px;"></i>
+                <ul class="popular-posts">
+                    <li class="popular-content"><div class="captions">
                     </div>
+                    <h5><strong>Happening today!dsfsdfdsfdsfdsf</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <li class="popular-content"><div class="captions">
+                    </div>
+                    <h5><strong>Happenings today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <li class="popular-content"><div class="captions">
+                    </div>
+                    <h5><strong>Happeningd today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <li class="popular-content"><div class="captions">
+                    </div>
+                    <h5><strong>Happeninfdsfsdfg today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <li class="popular-content"><div class="captions">
+                    </div>
+                    <h5><strong>Happendfdsing today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <h5><strong>Happendfdsing today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                    <h5><strong>Happendfdsing today!</strong></h5>
+                                    <h6>The people of Gaza...</h6>
+                                    <div class="profile-img-cap">
+                                        <img src="images/prof-2.png">  
+                                        <span class="room-name">f/worldnews</span>
+                                    </div>
+                    </li>
+                </ul>
+            </div>
+                     
+            
+                            
+                                <div class="captions">
+                                    
+
+                        </div>
+                    </div>
+                            
+
+                        
+                       
+                    <button class="carousel-control-next" type="button" data-bs-target="#popularposts" data-bs-slide="prev">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#popularposts" data-bs-slide="next">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
 
                     
 
                 </div>
             </div>
         </div>
+    </div>
 
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       
     </body>
