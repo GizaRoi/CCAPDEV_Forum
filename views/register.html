@@ -1,3 +1,234 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+
+:root {
+    --background-color: #171820;
+    --secondary-color: #262731;
+    --accent-color: #a071cf;
+    --secondary-text: #a8a8aa;
+}
+
+body {
+    background-color: var(--background-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.close-button{
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px;
+}
+
+.wrapper {
+    border: 1px solid black;
+    background-color: var(--secondary-color);
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.form-box {
+    padding: 0px 30px;
+}
+
+.logo img{
+    width: 100px;
+}
+
+.welcome-msg {
+    margin: 0px 0px 32px 0px;
+}
+
+.welcome-msg h3 {
+    color: whitesmoke;
+    font-weight: 100;
+}
+
+.welcome-msg h4 {
+    color: var(--secondary-text);
+    font-weight: 100;
+    font-size: smaller;
+}
+
+.welcome-msg a {
+    color: var(--accent-color);
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    flex-direction: column;
+}
+
+.input-box input{
+    padding: 10px;
+    padding-right: 35px; /* Add padding to the right to make space for the icon */
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: #fff;
+    transition: border-color 0.3s, outline-color 0.3s;;
+    margin: 8px 0px;
+}
+
+.input-box input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.input-box label {
+    color: whitesmoke;
+    font-weight: 100;
+    font-size: small;
+}
+
+.checkbox-content {
+    color: whitesmoke;
+    font-weight: 100;
+    font-size: smaller;
+    margin: 8px 0px 0px 0px;
+}
+
+.checkbox-content input {
+    accent-color: var(--accent-color);
+    margin: 0px 8px 0px 0px;
+}
+
+.checkbox-content a{
+    color: var(--accent-color);
+}
+
+.submit-box {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0px 18px 0px;
+}
+
+.submit-box button {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: whitesmoke;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    border-radius: 4px;
+}
+
+
+.password-icon{
+    position: absolute;
+    color: whitesmoke;
+    cursor: pointer;
+    right: 45px;
+    top: 358px;
+}
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    
+    
+    <div class="wrapper">
+
+        <span class="close-button">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+
+        <div class="form-box">
+
+            <div class="logo"><img src="/./images/1.png"></div>
+
+            <div class="welcome-msg">
+                <h3>Let's Get Started.</h3>
+                <h4>Already have an account? <a href="login.html">Log in</a></h4>
+            </div>
+
+            <form action="" class="input-group">
+
+                <div class="input-box">
+                    <label for="">Username</label>
+                    <input type="username" class="input-field">
+                </div>
+
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="input-field" name="password" required>
+                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-outline"></ion-icon></i>
+                </div>
+
+                <div class="input-box">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" id="password" class="input-field" name="password" required>
+                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-outline"></ion-icon></i>
+                </div>
+
+                <div class="checkbox-content">
+                    <label><input type="checkbox">You agree to our <a href="#">User Agreement</a> and acknowledge that you understand the <a href="#">Privacy Policy</a>.</label>
+                </div>
+
+                <div class="submit-box">
+                    <button type= "submit" class="button">Continue</button>
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+         
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+    
+        togglePassword.addEventListener('click', function(e) {
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+    
+          // Optional: Add logic to change the icon class (e.g., fa-eye-slash) here
+        });
+      </script>
+
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -227,3 +458,4 @@ body {
 
 </body>
 </html>
+>>>>>>> 59cb2051a42b27bca9bb1fa277b83ec71277e008

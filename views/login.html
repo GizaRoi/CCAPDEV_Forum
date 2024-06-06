@@ -180,7 +180,7 @@ body {
                 <div class="input-box">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="input-field" name="password" required>
-                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-outline"></ion-icon></i>
+                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
                 </div>
 
                 <div class="checkbox-content">
@@ -206,12 +206,17 @@ body {
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
-    
-        togglePassword.addEventListener('click', function(e) {
-          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-          password.setAttribute('type', type);
-    
-          // Optional: Add logic to change the icon class (e.g., fa-eye-slash) here
+        const eyeIcon = togglePassword.querySelector('ion-icon');
+
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            if (type === 'password') {
+                eyeIcon.setAttribute('name', 'eye-off-outline');
+            } else {
+                eyeIcon.setAttribute('name', 'eye-outline');
+            }
         });
       </script>
 
