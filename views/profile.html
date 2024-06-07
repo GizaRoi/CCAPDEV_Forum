@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #181818;
+            color: #ffffff;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #242424;
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-header h2 {
+            flex-grow: 1;
+        }
+
+        .profile-header button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .profile-description {
+            margin: 20px 0;
+        }
+
+        .posts {
+            margin-top: 20px;
+        }
+
+        .post {
+            padding: 10px;
+            border: 1px solid #333333;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #333333;
+        }
+
+        .post h4 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #242424;
+            padding: 20px;
+            width: 300px;
+            position: relative;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        .modal-content .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-content label {
+            margin-bottom: 5px;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            background-color: #333333;
+            border: 1px solid #444444;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        .modal-content button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Profile</h1>
+        </header>
+        <main>
+            <section class="profile">
+                <div class="profile-header">
+                    <img src="images/prof-1.png" class="profile-pic">
+                    <h2>Vincent</h2>
+                    <button id="edit-profile-button">Edit Profile</button>
+                </div>
+                <p class="profile-description">*description*</p>
+            </section>
+            <section class="posts">
+                <h3>Posts</h3>
+                <div class="post">
+                    <h4>Vincent</h4>
+                    <p>*caption*</p>
+                </div>
+                <div class="post">
+                    <h4>Vincent</h4>
+                    <p>*caption*</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <h2>Edit Profile</h2>
+                <label for="profile-picture">Profile Picture</label>
+                <input type="file" id="profile-picture" name="profile-picture">
+                
+                <label for="profile-description">Description</label>
+                <textarea id="profile-description" name="profile-description" rows="3"></textarea>
+                
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('edit-profile-button').addEventListener('click', function() {
+            document.getElementById('edit-profile-modal').style.display = 'flex';
+        });
+
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.getElementById('edit-profile-modal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('edit-profile-modal')) {
+                document.getElementById('edit-profile-modal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
