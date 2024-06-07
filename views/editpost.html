@@ -308,7 +308,7 @@
         display: flex;
         flex-direction: column;
     }
-    form input, textarea, button, p{
+    form input, textarea, button, p, a{
         width: 100%;
         margin-bottom: 10px;
         border-radius: 20px;
@@ -327,12 +327,17 @@
         font-size: 15px;
         height: 7em;
     }
-    form .submitBtn{
+    form .submitBtn, a{
         width: 7em;
         margin: 0px;
         margin-right: 5px;
         padding: 0px;
         justify-content: right;
+    }
+    form a{
+        padding-top: 5px;
+        padding-left: 18px;
+        width: 5em;
     }
     form .submit-container{
         display: flex;
@@ -471,7 +476,7 @@
                             <textarea name="content" placeholder="Body">I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.</textarea>
                             <div class="submit-container">
                                 <input type="submit" action="" class="submitBtn" value="Finish Edit">
-                                <button class="submitBtn"><a href="post.html">Cancel</a></button>
+                                <a href="post.html">Cancel</a>
                             </div>
                         </form>
                         </div>
