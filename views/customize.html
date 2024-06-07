@@ -30,6 +30,7 @@
             margin: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
 
         .close-button {
@@ -42,6 +43,10 @@
             right: 0;
         }
 
+        .close-button:hover {
+            color: var(--accent-color);
+        }
+
         .wrapper {
             background-color: var(--secondary-color);
             max-width: 430px;
@@ -50,10 +55,21 @@
             border-radius: 8px;
             padding: 40px 20px 20px;
             position: relative;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .wrapper:hover {
+            transform: scale(1.02);
+            background-color: #2a2b36;
         }
 
         .form-box {
             padding: 0 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-box:hover {
+            transform: translateY(-5px);
         }
 
         .logo img {
@@ -75,6 +91,15 @@
             text-align: center;
         }
 
+        .welcome-msg a {
+            color: var(--accent-color);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .welcome-msg a:hover {
+            color: whitesmoke;
+        }
+
         .prof-images {
             display: flex;
             justify-content: space-between;
@@ -85,6 +110,11 @@
             width: 50px;
             border-radius: 4px;
             cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .prof-images img:hover {
+            transform: scale(1.1);
         }
 
         .bio-box {
@@ -111,13 +141,15 @@
             margin-top: 8px;
             resize: none;
             font-size: small;
+            transition: border-color 0.3s, outline-color 0.3s;
         }
 
         .bio-box textarea::placeholder {
             color: var(--secondary-text);
         }
 
-        .bio-box textarea:focus {
+        .bio-box textarea:focus,
+        .bio-box textarea:hover {
             border-color: var(--accent-color);
             outline: none;
         }
@@ -137,11 +169,12 @@
             cursor: pointer;
             border-radius: 4px;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
         .next-button button:hover {
             background-color: rgb(140, 93, 187);
+            transform: scale(1.05);
         }
 
         .next-button button a {
@@ -155,6 +188,11 @@
             cursor: pointer;
             right: 45px;
             top: 358px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .password-icon:hover {
+            color: var(--accent-color);
         }
 
         ion-icon {
@@ -182,11 +220,12 @@
             justify-content: center;
             text-align: center;
             border: 3px dotted var(--accent-color);
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
         .upload-photo button:hover {
             background-color: rgba(160, 113, 207, 0.6);
+            transform: scale(1.05);
         }
 
         .centered-text {
