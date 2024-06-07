@@ -61,18 +61,17 @@
         border-radius: 5px; 
         margin-right: auto;
     }
-  
-    .btn-logout{
-        width: 80px;
+    .btn-log{
+        width: 150px;
+        background-color: #a071cf;
         color: whitesmoke; 
-        margin-right: 3px;
-        margin-left: 1px;
-        text-align: justify;
-    }
-
-    .login-box{
-        display: flex;
-        justify-content: center;    
+        margin-top: 25px;
+        margin-bottom: 20px;
+        margin-right: 25px;
+        border-radius: 5px; 
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
     }
 
     nav, .navbar {
@@ -96,14 +95,14 @@
         scrollbar-width:none;
     }
 
+
     .lineh{
         width: 100%;
         height: 1px;
         background-color: var(--background-color);
-        margin-bottom: 0;
+        margin-bottom: 10px;
         margin-top: 10px;
     }
-   
 
     .right-body{
         width: 25%;
@@ -118,6 +117,11 @@
         padding: 20px;
     }
 
+    .adimg > img{
+        width: 180px;
+        height: 225px;
+        margin-left: 10px;
+    }
     .top-body{
         width: 50%;
         background-color: var(--secondary-color);
@@ -204,8 +208,8 @@
     .Title{
         color: whitesmoke;
             font-size: 30px;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 15px;
             
         }
     .room-name{
@@ -219,31 +223,6 @@
         align-items: center;
         margin-top: 3px;
         margin-left: 0px;
-    }
-
-    .profile-img {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    margin-top: 15px;
-    margin-right:15px;
-    }
-
-    .profile-img > img{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid --secondary-color;
-    }
-
-    .op-username{
-        margin: 2px;
-        color: var(--secondary-text);
-    }
-
-    .op-username a{
-        color: var(--secondary-text);
-        text-decoration: none;
     }
 
     .post-content{
@@ -282,14 +261,9 @@
                 </div>
 
                 <div class="d-flex justify-content-end">
-                   
-                    <div class="op-username" style="margin-top: 20px; font-size: 17px; "><a href="profile.html">@gab12</a>
-                        <form class="d-flex justify-content-start">
-                            <a class="btn-logout" href="login.html"><strong>Log-out</strong></a>
-                        </form></div>
-                    <div class="profile-img">
-                        <img src="images/prof-2.png">
-                    </div>
+                    <form class="d-flex justify-content-start">
+                        <a class="btn-log" href="login.html"><strong>Register | Log-in</strong></a>
+                    </form>
                 </div>
                     
             </div>
@@ -307,70 +281,8 @@
                     <i class="bi bi-stars" style="font-size: 25px; color: whitesmoke;"></i>
                     <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;">Popular</span>
                 </button>
-                <button type="button" class="btn" style="width: 50%; align-items: left; text-align: left;">
-                    <i class="bi bi-plus-lg" style="font-size: 23px; color: whitesmoke;"></i>
-                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;">Create</span>
-                </button>
-                <button type="button" class="btn" style="width: 65%; align-items: left; text-align: left;">
-                    <i class="bi bi-person-square" style="font-size: 20px; color: whitesmoke;"></i>
-                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;"><a href="editprofile.html"></a>Edit Profile</span>
-                </button>
-                
                 <div class="lineh"></div>
                 
-                <div class="Title">Rooms</div>
-                <div class="Rooms-list">
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/worldnews</strong> <br />
-                            <h6>6,339,495 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/DeLozol</strong> <br />
-                            <h6>43,542 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/fashion</strong> <br />
-                            <h6>1,459,235 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/games</strong> <br />
-                            <h6>1,039,645 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/memes</strong> <br />
-                            <h6>4,569,445 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/catLovers</strong> <br />
-                            <h6>454,356 members</h6>
-                        </div>
-                    </div>
-                    <div class="Rooms-img">
-                        <img src="images/prof-5.png">
-                        <div class="room-name">
-                            <strong> fr/programmer</strong> <br />
-                            <h6>6,345 members</h6>
-                        </div>
-                    </div>
-                    
-                </div>
            
             </div>
 
