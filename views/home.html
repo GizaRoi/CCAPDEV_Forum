@@ -25,11 +25,6 @@
         margin: 0px;
     }
 
-    .inner-body{
-        display: flex;
-        flex-direction: column;
-    }
-
     .header{
         display: flex;
         flex-direction: row;
@@ -66,15 +61,7 @@
         border-radius: 5px; 
         margin-right: auto;
     }
-    .btn-log{
-        width: 80px;
-        background-color: var(--accent-color);
-        color: whitesmoke; 
-        margin: 20px 25px 20px 12px;
-        border-radius: 5px; 
-        padding: 15px;
-    }
-
+    
     .btn-logout{
         width: 80px;
         color: whitesmoke; 
@@ -109,11 +96,6 @@
         scrollbar-width:none;
     }
 
-    .adimg > img{
-        width: 180px;
-        height: 225px;
-        margin-left: 10px;
-    }
     .top-body{
         width: 50%;
         background-color: var(--secondary-color);
@@ -122,6 +104,19 @@
         align-items: center;
         justify-items: center;
         margin-left: 90px;
+    }
+
+    .right-body{
+        width: 25%;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-items: left;
+        color: whitesmoke;
+        border-left: 1px solid var(--background-color);
+        margin-left: 40px;
+        padding: 20px;
     }
 
     .Rooms-list{
@@ -140,6 +135,7 @@
         margin-top: 5px;
         display: flex;
         flex-direction: row;
+        margin-right: 10px;
     }
 
     .Rooms-img > img{
@@ -217,6 +213,7 @@
         float: left;
     }
     #fr1{
+        width: 20px;
         height: 20px;
         border-radius: 100%;
     }
@@ -315,12 +312,12 @@
 
                 <div class="d-flex justify-content-end">
                    
-                    <div class="op-username" style="margin-top: 20px; font-size: 17px; "><a href="profile.html">@gab12</a>
+                    <div class="op-username" style="margin-top: 20px; font-size: 17px; "><a href="profile.html">@gabLlenarez12</a>
                         <form class="d-flex justify-content-start">
                             <a class="btn-logout" href="login.html"><strong>Log-out</strong></a>
                         </form></div>
                     <div class="profile-img">
-                        <img src="images/prof-2.png">
+                        <img src="images/prof-1.png">
                     </div>
 
                     
@@ -355,49 +352,49 @@
                 <div class="Title">Rooms</div>
                 <div class="Rooms-list">
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-1.png">
                         <div class="room-name">
                             <strong> fr/worldnews</strong> <br />
                             <h6>6,339,495 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/FRdelozol.jpg">
                         <div class="room-name">
                             <strong> fr/DeLozol</strong> <br />
                             <h6>43,542 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-2.jpg">
                         <div class="room-name">
                             <strong> fr/fashion</strong> <br />
                             <h6>1,459,235 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-3.jpg">
                         <div class="room-name">
                             <strong> fr/games</strong> <br />
                             <h6>1,039,645 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-6.jpg">
                         <div class="room-name">
                             <strong> fr/memes</strong> <br />
                             <h6>4,569,445 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-4.jpg">
                         <div class="room-name">
                             <strong> fr/catLovers</strong> <br />
                             <h6>454,356 members</h6>
                         </div>
                     </div>
                     <div class="Rooms-img">
-                        <img src="images/prof-5.png">
+                        <img src="images/room-5.jpg">
                         <div class="room-name">
                             <strong> fr/programmer</strong> <br />
                             <h6>6,345 members</h6>
@@ -442,11 +439,11 @@
                     <div class="lineh"></div>
                         <a href="profile.html"></a>
                         <div class="post-header">
-                            <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
+                            <div class="op-pfp"><img id="pfp5" src="images/prof-2.png"/></div>
                             <div class="post-info">
                                 <div class="op-username">by <a href="profile.html">@roiMark</a> • June 4, 2024</div>
                                 <div class="room">
-                                    <img id="fr1" src="images/FRdelozol.jpg"/>
+                                    <img id="fr1" src="images/room-2.jpg"/>
                                     <span class="roomname">fr/fashion</span>
                                 </div>
                             </div>
@@ -467,11 +464,11 @@
                     <div class="lineh"></div>
                         <a href="home.html"></a>
                         <div class="post-header">
-                            <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
+                            <div class="op-pfp"><img id="pfp5" src="images/prof-1.png"/></div>
                             <div class="post-info">
                                 <div class="op-username">by <a href="profile.html">@gabLlenarez12</a> • June 4, 2024</div>
                                 <div class="room">
-                                    <img id="fr1" src="images/FRdelozol.jpg"/>
+                                    <img id="fr1" src="images/room-5.jpg"/>
                                     <span class="roomname">fr/programmer</span>
                                 </div>
                             </div>
@@ -492,11 +489,11 @@
                     <div class="lineh"></div>
                         <a href="home.html"></a>
                         <div class="post-header">
-                            <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
+                            <div class="op-pfp"><img id="pfp5" src="images/prof-4.png"/></div>
                             <div class="post-info">
                                 <div class="op-username">by <a href="profile.html">@azaVelasquez</a> • June 4, 2024</div>
                                 <div class="room">
-                                    <img id="fr1" src="images/FRdelozol.jpg"/>
+                                    <img id="fr1" src="images/room-4.jpg"/>
                                     <span class="roomname">fr/catLovers</span>
                                 </div>
                             </div>
@@ -517,11 +514,11 @@
                     <div class="lineh"></div>
                         <a href="home.html"></a>
                         <div class="post-header">
-                            <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
+                            <div class="op-pfp"><img id="pfp5" src="images/prof-3.png"/></div>
                             <div class="post-info">
                                 <div class="op-username">by <a href="profile.html">@vince34</a> • June 3, 2024</div>
                                 <div class="room">
-                                    <img id="fr1" src="images/FRdelozol.jpg"/>
+                                    <img id="fr1" src="images/room-2.jpg"/>
                                     <span class="roomname">fr/fashion</span>
                                 </div>
                             </div>
@@ -565,6 +562,54 @@
                 </button>                      
                         
                 </div>
+
+                <div class="right-body">
+                    <div class="Title">Discover rooms</div>
+                    <div class="Rooms-list">
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        <div class="Rooms-img">
+                            <img src="images/FRdelozol.jpg">
+                            <div class="room-name">
+                                <strong> fr/worldnews</strong> <br />
+                                <h6>6,339,495 members</h6>
+                            </div>
+                        </div>
+                        
+                    </div>
         </div>
         
 
