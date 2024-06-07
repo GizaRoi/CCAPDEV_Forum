@@ -37,6 +37,9 @@
             display: flex;
             justify-content: flex-end;
             padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
         }
 
         .wrapper {
@@ -44,8 +47,8 @@
             max-width: 430px;
             width: 100%;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 40px 20px 20px;
             position: relative;
         }
 
@@ -110,6 +113,10 @@
             font-size: small;
         }
 
+        .bio-box textarea::placeholder {
+            color: var(--secondary-text);
+        }
+
         .bio-box textarea:focus {
             border-color: var(--accent-color);
             outline: none;
@@ -130,6 +137,11 @@
             cursor: pointer;
             border-radius: 4px;
             font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .next-button button:hover {
+            background-color: rgb(140, 93, 187);
         }
 
         .next-button button a {
@@ -151,7 +163,7 @@
 
         .upload-photo {
             display: flex;
-            justify-content: center; /* Center horizontally */
+            justify-content: center;
             margin: 16px 0;
         }
 
@@ -167,13 +179,19 @@
             width: 100px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center text horizontally and vertically */
+            justify-content: center;
             text-align: center;
+            border: 3px dotted var(--accent-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-photo button:hover {
+            background-color: rgba(160, 113, 207, 0.6);
         }
 
         .centered-text {
             text-align: center;
-            margin: 16px 0; /* Adjust margin for spacing */
+            margin: 16px 0;
         }
 
         .centered-text span {
