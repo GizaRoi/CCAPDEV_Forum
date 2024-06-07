@@ -31,10 +31,9 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
 }
 
-.close-button{
+.close-button {
     color: whitesmoke;
     display: flex;
     justify-content: flex-end;
@@ -49,14 +48,25 @@ body {
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .form-box {
     padding: 0px 30px;
 }
 
-.logo img{
+.logo img {
     width: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: rotate(360deg);
 }
 
 .welcome-msg {
@@ -76,6 +86,11 @@ body {
 
 .welcome-msg a {
     color: var(--accent-color);
+    transition: color 0.3s;
+}
+
+.welcome-msg a:hover {
+    color: white;
 }
 
 .input-box {
@@ -85,26 +100,28 @@ body {
     flex-direction: column;
 }
 
-.input-box input{
+.input-box input {
     padding: 10px;
     padding-right: 35px; /* Add padding to the right to make space for the icon */
     border: 2px solid transparent;
     border-radius: 4px;
     background-color: var(--background-color);
     color: #fff;
-    transition: border-color 0.3s, outline-color 0.3s;;
+    transition: border-color 0.3s, outline-color 0.3s, background-color 0.3s;
     margin: 8px 0px;
 }
 
 .input-box input:focus {
     border-color: var(--accent-color);
     outline: none;
+    background-color: var(--secondary-color);
 }
 
 .input-box label {
     color: whitesmoke;
     font-weight: 100;
     font-size: small;
+    transition: color 0.3s;
 }
 
 .checkbox-content {
@@ -112,6 +129,7 @@ body {
     font-weight: 100;
     font-size: smaller;
     margin: 8px 0px 0px 0px;
+    transition: color 0.3s;
 }
 
 .checkbox-content input {
@@ -134,22 +152,32 @@ body {
     cursor: pointer;
     margin-bottom: 24px;
     border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.submit-box button a{
+.submit-box button:hover {
+    background-color: white;
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.submit-box button a {
     text-decoration: none;
-    color: whitesmoke;
+    color: inherit;
 }
 
-
-.password-icon{
+.password-icon {
     position: absolute;
     color: whitesmoke;
     cursor: pointer;
     right: 45px;
     top: 365px;
+    transition: color 0.3s;
 }
 
+.password-icon:hover {
+    color: var(--accent-color);
+}
 
     </style>
 
@@ -189,16 +217,13 @@ body {
                 </div>
 
                 <div class="submit-box">
-                    <button type= "submit" class="button"><a href="home.html">Sign In</a></button>
+                    <button type="submit" class="button"><a href="home.html">Sign In</a></button>
                 </div>
-
-
 
             </form>
 
         </div>
 
-         
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -219,8 +244,7 @@ body {
                 eyeIcon.setAttribute('name', 'eye-outline');
             }
         });
-
-      </script>
+    </script>
 
 </body>
 </html>

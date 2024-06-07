@@ -31,14 +31,18 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.close-button{
+.close-button {
     color: whitesmoke;
     display: flex;
     justify-content: flex-end;
     margin: 10px 10px;
+}
+
+.close-button:hover {
+    color: var(--accent-color);
 }
 
 .wrapper {
@@ -49,13 +53,24 @@ body {
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.wrapper:hover {
+    transform: scale(1.02);
+    background-color: #2a2b36;
 }
 
 .form-box {
     padding: 0px 30px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.logo img{
+.form-box:hover {
+    transform: translateY(-5px);
+}
+
+.logo img {
     width: 100px;
 }
 
@@ -76,6 +91,11 @@ body {
 
 .welcome-msg a {
     color: var(--accent-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.welcome-msg a:hover {
+    color: whitesmoke;
 }
 
 .input-box {
@@ -85,18 +105,19 @@ body {
     flex-direction: column;
 }
 
-.input-box input{
+.input-box input {
     padding: 10px;
     padding-right: 35px; /* Add padding to the right to make space for the icon */
     border: 2px solid transparent;
     border-radius: 4px;
     background-color: var(--background-color);
     color: #fff;
-    transition: border-color 0.3s, outline-color 0.3s;;
+    transition: border-color 0.3s, outline-color 0.3s;
     margin: 8px 0px;
 }
 
-.input-box input:focus {
+.input-box input:focus,
+.input-box input:hover {
     border-color: var(--accent-color);
     outline: none;
 }
@@ -119,8 +140,13 @@ body {
     margin: 0px 8px 0px 0px;
 }
 
-.checkbox-content a{
+.checkbox-content a {
     color: var(--accent-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.checkbox-content a:hover {
+    color: whitesmoke;
 }
 
 .submit-box {
@@ -138,29 +164,36 @@ body {
     cursor: pointer;
     margin-bottom: 24px;
     border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.submit-box button a{
+.submit-box button:hover {
+    background-color: #8a56b7;
+    transform: scale(1.05);
+}
+
+.submit-box button a {
     text-decoration: none;
     color: whitesmoke;
 }
 
-
-.password-icon{
+.password-icon {
     position: absolute;
     color: whitesmoke;
     cursor: pointer;
     right: 45px;
     top: 368px;
+    transition: color 0.3s ease-in-out;
 }
 
+.password-icon:hover {
+    color: var(--accent-color);
+}
 
     </style>
 
 </head>
 <body>
-
-    
     
     <div class="wrapper">
 
@@ -180,8 +213,8 @@ body {
             <form action="" class="input-group">
 
                 <div class="input-box">
-                    <label for="">Username</label>
-                    <input type="username" class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="input-field">
                 </div>
 
                 <div class="input-box">
@@ -191,9 +224,9 @@ body {
                 </div>
 
                 <div class="input-box">
-                    <label for="password">Confirm Password</label>
-                    <input type="password" id="password" class="input-field" name="password" required>
-                    <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" class="input-field" name="confirm-password" required>
+                    <i id="toggleConfirmPassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
                 </div>
 
                 <div class="checkbox-content">
@@ -201,16 +234,13 @@ body {
                 </div>
 
                 <div class="submit-box">
-                    <button type= "submit" class="button"><a href="customize.html">Continue</a></button>
+                    <button type="submit" class="button"><a href="customize.html">Continue</a></button>
                 </div>
-
-
 
             </form>
 
         </div>
 
-         
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -229,6 +259,21 @@ body {
                 eyeIcon.setAttribute('name', 'eye-off-outline');
             } else {
                 eyeIcon.setAttribute('name', 'eye-outline');
+            }
+        });
+
+        const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+        const confirmPassword = document.querySelector('#confirm-password');
+        const confirmEyeIcon = toggleConfirmPassword.querySelector('ion-icon');
+
+        toggleConfirmPassword.addEventListener('click', function() {
+            const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPassword.setAttribute('type', type);
+
+            if (type === 'password') {
+                confirmEyeIcon.setAttribute('name', 'eye-off-outline');
+            } else {
+                confirmEyeIcon.setAttribute('name', 'eye-outline');
             }
         });
         
