@@ -1,7 +1,7 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('op-username').addEventListener('click', async () => {
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('edit-profile-button').addEventListener('click', async () => {
         try {
-            const response = await fetch('/profile');
+            const response = await fetch('/editprofile');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -11,4 +11,4 @@
             console.error('Error fetching the profile page:', error);
         }
     });
-}); */
+}); 

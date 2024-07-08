@@ -29,4 +29,11 @@ router.get('/profile', (req, resp) => {
         title: 'User Profile'
     });
 });
+
+router.get('/editprofile', (req, resp) =>{
+    resp.render('editprofile', {
+        layout: 'editprofile',
+        title: 'Edit Profile'
+    });
+});
 module.exports = router;
