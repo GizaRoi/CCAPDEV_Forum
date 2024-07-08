@@ -23,8 +23,8 @@ router.get('/register', (req, resp) => {
     })
 })
 
-router.get('/profile', (req, res) => {
-    res.render('profile', {
+router.get('/profile', (req, resp) => {
+    resp.render('profile', {
         layout: 'profilelayout',
         title: 'User Profile'
     });

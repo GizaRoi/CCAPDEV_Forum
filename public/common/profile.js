@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('btn-profile').addEventListener('click', async () => {
+/*document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('op-username').addEventListener('click', async () => {
         try {
             const response = await fetch('/profile');
             if (!response.ok) {
@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching the profile page:', error);
         }
     });
-});
+}); */
