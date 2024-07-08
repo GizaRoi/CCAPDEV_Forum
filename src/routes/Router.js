@@ -22,4 +22,11 @@ router.get('/register', (req, resp) => {
         title: 'Register'
     })
 })
+
+router.get('/profile', (req, res) => {
+    res.render('profile', {
+        layout: 'profilelayout',
+        title: 'User Profile'
+    });
+});
 module.exports = router;
