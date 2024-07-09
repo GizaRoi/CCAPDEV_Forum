@@ -1,4 +1,3 @@
-
 <div class="wrapper">
     <span class="close-button">
         <a href="/"><ion-icon name="close-outline"></ion-icon></a>
@@ -26,6 +25,12 @@
                 <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
             </div>
 
+                    {{#if error}}
+        <div class="error-msg">
+            <p>{{error}}</p>
+        </div>
+        {{/if}}
+
             <div class="checkbox-content">
                 <label><input type="checkbox" name="remember">Remember this device</label>
             </div>
@@ -35,8 +40,6 @@
             </div>
 
         </form>
-
-        
     </div>
 </div>
 

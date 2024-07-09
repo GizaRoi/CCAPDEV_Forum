@@ -1,0 +1,71 @@
+{
+    "post": {
+      "username": "@juan01",
+      "date": "June 4, 2024",
+      "room": "fr/DeLozol",
+      "title": "The DOTA2 situation is so nakakahiya",
+      "content": "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
+      "votes": {
+        "upvotes": 402,
+        "downvotes": 96
+      },
+      "replies": 5
+    },
+    "replies": [
+      {
+        "username": "@azaVelasquez",
+        "date": "June 4, 2024",
+        "content": "Yeah it's kinda annoying but I guess that's the life we gotta live as Lozollians.",
+        "votes": {
+          "upvotes": 25,
+          "downvotes": 2
+        },
+        "replies": 2,
+        "children": [
+          {
+            "username": "@vince34",
+            "date": "June 4, 2024",
+            "content": "Welllll you guys kinda deserve it. Mga iyakin haha.",
+            "votes": {
+              "upvotes": 3,
+              "downvotes": 50
+            },
+            "replies": 0
+          },
+          {
+            "username": "@juan01",
+            "date": "June 4, 2024",
+            "content": "Yo stop fighting di naman kayo yung naglalaro hahahaha",
+            "votes": {
+              "upvotes": 1,
+              "downvotes": 60
+            },
+            "replies": 0
+          }
+        ]
+      },
+      {
+        "username": "@roiMark",
+        "date": "June 4, 2024",
+        "content": "RULES ARE RULES LOL",
+        "votes": {
+          "upvotes": 1,
+          "downvotes": 70
+        },
+        "replies": 1,
+        "children": [
+          {
+            "username": "@gabLlenarex12",
+            "date": "June 4, 2024",
+            "content": "Yeah but those rules were completely trash. Banter is embedded into Esports Culture.",
+            "votes": {
+              "upvotes": 300,
+              "downvotes": 1
+            },
+            "replies": 0
+          }
+        ]
+      }
+    ]
+  }
+  

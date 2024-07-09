@@ -3,16 +3,16 @@
     --secondary-color: #262731;
     --accent-color: #a071cf;
     --secondary-text: #a8a8aa;
+    --error-text:  rgb(190, 46, 46);
 }
 
 body {
     background-color: var(--background-color);
     height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 0px;
+    margin: 0;
     position: relative;
     overflow: hidden;
 }
@@ -28,7 +28,7 @@ body {
     color: whitesmoke;
     display: flex;
     justify-content: flex-end;
-    margin: 10px 10px;
+    margin: 10px;
 }
 
 .wrapper {
@@ -40,20 +40,23 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 20px;
 }
 
-
 .form-box {
-    padding: 0px 30px;
+    padding: 0 30px;
 }
 
 .logo img {
     width: 100px;
+    display: block;
+    margin: 0 auto 20px;
     transition: transform 0.3s ease-in-out;
 }
 
 .welcome-msg {
-    margin: 0px 0px 32px 0px;
+    margin-bottom: 32px;
+    text-align: center;
 }
 
 .welcome-msg h3 {
@@ -78,20 +81,18 @@ body {
 
 .input-box {
     display: flex;
-    justify-content: space-around;
-    margin: 15px 0;
     flex-direction: column;
+    margin: 15px 0;
 }
 
 .input-box input {
     padding: 10px;
-    padding-right: 35px; /* Add padding to the right to make space for the icon */
     border: 2px solid transparent;
     border-radius: 4px;
     background-color: var(--background-color);
     color: #fff;
     transition: border-color 0.3s, outline-color 0.3s, background-color 0.3s;
-    margin: 8px 0px;
+    margin: 8px 0;
 }
 
 .input-box input:focus {
@@ -111,19 +112,19 @@ body {
     color: whitesmoke;
     font-weight: 100;
     font-size: smaller;
-    margin: 8px 0px 0px 0px;
+    margin: 8px 0;
     transition: color 0.3s;
 }
 
 .checkbox-content input {
     accent-color: var(--accent-color);
-    margin: 0px 8px 0px 0px;
+    margin-right: 8px;
 }
 
 .submit-box {
     display: flex;
     justify-content: center;
-    margin: 40px 0px 18px 0px;
+    margin: 40px 0 18px;
 }
 
 .submit-box button {
@@ -131,9 +132,8 @@ body {
     background-color: var(--accent-color);
     color: whitesmoke;
     border: none;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
-    margin-bottom: 24px;
     border-radius: 4px;
     transition: background-color 0.3s, transform 0.3s;
 }
@@ -160,4 +160,11 @@ body {
 
 .password-icon:hover {
     color: var(--accent-color);
+}
+
+.error-msg {
+    color: var(--error-text);
+    font-weight: 100;
+    font-size: smaller;
+    margin: 8px 0;
 }

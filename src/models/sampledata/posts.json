@@ -1,0 +1,75 @@
+[
+    {
+      "username": "juan01",
+      "date": "June 4, 2024",
+      "roomImg": "images/FRdelozol.jpg",
+      "roomName": "fr/DeLozol",
+      "profileImg": "images/prof-5.png",
+      "title": "The DOTA2 situation is so nakakahiya",
+      "content": "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
+      "upvotes": 402,
+      "downvotes": 96,
+      "comments": 5
+    },
+    {
+      "username": "roiMark",
+      "date": "June 4, 2024",
+      "roomImg": "images/FRfashion.png",
+      "roomName": "fr/fashion",
+      "profileImg": "images/prof-2.png",
+      "title": "Summer Fashion Tips fls",
+      "content": "Summer's here and i'm looking for some fresh outfit ideas to beat the heat while staying stylish. Can any of u guys recommend any? TIA!!!",
+      "upvotes": 252,
+      "downvotes": 5,
+      "comments": 35
+    },
+    {
+      "username": "gabLlenarez12",
+      "date": "June 4, 2024",
+      "roomImg": "images/FRprogrammer.png",
+      "roomName": "fr/programmer",
+      "profileImg": "images/prof-1.png",
+      "title": "Dark mode or light mode???",
+      "content": "Do you guys prefer coding in dark mode or light mode? I've been using dark mode for years but thinking of switching it up. What are your thoughts?",
+      "upvotes": 65,
+      "downvotes": 0,
+      "comments": 8
+    },
+    {
+      "username": "azaVelasquez",
+      "date": "June 4, 2024",
+      "roomImg": "images/FRcatLovers.png",
+      "roomName": "fr/catLovers",
+      "profileImg": "images/prof-4.png",
+      "title": "DIY cat toys",
+      "content": "I'm thinking of making some DIY toys for my cats. Any simple and fun ideas that your kitties love? Would love to hear some suggestions!!! tysm..",
+      "upvotes": 120,
+      "downvotes": 0,
+      "comments": 89
+    },
+    {
+      "username": "vince34",
+      "date": "June 3, 2024",
+      "roomImg": "images/FRfashion.png",
+      "roomName": "fr/fashion",
+      "profileImg": "images/prof-3.png",
+      "title": "Thrift shop finds",
+      "content": "Went thrifting today and found some amazing vintage pieces! Anyone else love thrifting as much as I do? Share your best finds!!",
+      "upvotes": 34,
+      "downvotes": 3,
+      "comments": 16
+    },
+    {
+      "username": "juan01",
+      "date": "June 3, 2024",
+      "roomImg": "images/FRdelozol.jpg",
+      "roomName": "fr/DeLozol",
+      "profileImg": "images/prof-5.png",
+      "title": "Wifi situation is getting worse",
+      "content": "Why is the campus wifi always so slow?! 2024 na and we still can't get a stable connection. Im trying to study in the library but the internet is barely working. Hope this gets fixed soon.",
+      "upvotes": 22,
+      "downvotes": 17,
+      "comments": 13
+    }
+  ]
+  

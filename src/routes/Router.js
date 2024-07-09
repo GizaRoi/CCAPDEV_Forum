@@ -140,22 +140,32 @@ router.post('/customize', async (req, res) => {
 });
 
 // Handle login
+// Handle login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
         const user = await User.findOne({ username });
-        if (user && await bcrypt.compare(password, user.password)) {
+        if (!user) {
+            // Username does not exist
+            res.render('login', {
+                layout: 'loginlayout',
+                title: 'Login',
+                error: 'Username does not exist.'
+            });
+        } else if (user && await bcrypt.compare(password, user.password)) {
+            // Successful login
             res.render('home2', {
                 layout: 'homelayout',
                 title: 'FoRoom',
                 username: user.username
             });
         } else {
+            // Password incorrect
             res.render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
-                error: 'Invalid username or password.'
+                error: 'Invalid Username or Password'
             });
         }
     } catch (error) {
@@ -167,5 +177,6 @@ router.post('/login', async (req, res) => {
         });
     }
 });
+
 
 module.exports = router;
