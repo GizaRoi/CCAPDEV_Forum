@@ -5,7 +5,8 @@ const router = Router();
 router.get('/', function(req, resp){
     resp.render('guesthome', {
         layout: 'homelayout',
-        title: 'FoRoom'
+        title: 'FoRoom',
+        isLoggedIn: false
     })
 })
 
@@ -26,7 +27,8 @@ router.get('/register', (req, resp) => {
 router.get('/home', (req, resp) =>{
     resp.render('home', {
         layout: 'homelayout',
-        title: 'Homepage'
+        title: 'Homepage',
+        isLoggedIn: true
     });
 });
 

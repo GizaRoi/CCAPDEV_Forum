@@ -1,3 +1,80 @@
+{{#if isLoggedIn}}
+<div class="left-body">
+                
+                <button type="button" class="btn" style="width: 55%; align-items: left; text-align: left;">
+                    <i class="bi bi-clock" style="font-size: 25px; color: whitesmoke;"></i>
+                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;"><a href="home.html" style="color: whitesmoke; text-decoration: none;">Timeline</span></a>
+                </button>
+                <button type="button" class="btn" style="width: 50%; align-items: left; text-align: left;">
+                    <i class="bi bi-stars" style="font-size: 25px; color: whitesmoke;"></i>
+                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;"><a href="home2.html" style="color: whitesmoke; text-decoration: none;">Popular</span></a>
+                </button>
+                <button type="button" class="btn" style="width: 50%; align-items: left; text-align: left;">
+                    <i class="bi bi-plus-lg" style="font-size: 23px; color: whitesmoke;"></i>
+                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;"><a href="createpost.html" style="color: whitesmoke; text-decoration: none;">Create</span></a>
+                </button>
+                <button type="button" class="btn" style="width: 65%; align-items: left; text-align: left;">
+                    <i class="bi bi-person-square" style="font-size: 20px; color: whitesmoke;"></i>
+                    <span style="font-size: 20px; margin-left: 6px; color: whitesmoke;"><a href="/profile" style="color: whitesmoke; text-decoration: none;">View Profile</span></a>
+                </button>
+                
+                <div class="lineh"></div>
+                
+                <div class="Title" style="font-size: 20px; margin-top: 0; margin-bottom: 0;">Rooms</div>
+                <div class="Rooms-list">
+                    <div class="Rooms-img">
+                        <img src="images/FRworldnews.png">
+                        <div class="room-name">
+                            <strong> fr/worldnews</strong> <br />
+                            <h6>6,339,495 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/FRdelozol.jpg">
+                        <div class="room-name">
+                            <strong> fr/DeLozol</strong> <br />
+                            <h6>43,542 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/FRfashion.png">
+                        <div class="room-name">
+                            <strong> fr/fashion</strong> <br />
+                            <h6>1,459,235 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/FRgames.png">
+                        <div class="room-name">
+                            <strong> fr/games</strong> <br />
+                            <h6>1,039,645 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/frmemes.png">
+                        <div class="room-name">
+                            <strong> fr/memes</strong> <br />
+                            <h6>4,569,445 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/FRcatLovers.png">
+                        <div class="room-name">
+                            <strong> fr/catLovers</strong> <br />
+                            <h6>454,356 members</h6>
+                        </div>
+                    </div>
+                    <div class="Rooms-img">
+                        <img src="images/FRprogrammer.png">
+                        <div class="room-name">
+                            <strong> fr/programmer</strong> <br />
+                            <h6>6,345 members</h6>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+{{else}}
 <div class="left-body">
                 
                 <button type="button" class="btn" style="width: 55%; align-items: left; text-align: left;">
@@ -12,3 +89,4 @@
                 
            
             </div>
+{{/if}}
