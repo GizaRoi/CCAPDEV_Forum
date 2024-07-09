@@ -4,6 +4,7 @@
             <a href="home.html"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
+
         <div class="form-box">
 
             <div class="logo"><img src="images/1.png"></div>
@@ -13,21 +14,21 @@
                 <h4>Already have an account? <a href="/login">Log in</a></h4>
             </div>
 
-            <form action="" class="input-group">
+            <form action="/register" method="POST"  class="input-group">
 
                 <div class="input-box">
                     <label for="username">Username</label>
-                    <input type="text" id="username" class="input-field">
+                    <input type="username" id="username" class="input-field" name="username"  placeholder="username">
                 </div>
 
                 <div class="input-box">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="input-field" name="password" required>
+                    <input type="password" id="password" class="input-field" name="password" required placeholder="password">
                 </div>
 
                 <div class="input-box">
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" class="input-field" name="confirm-password" required>
+                    <input type="password" id="confirm-password" class="input-field" name="confirm-password" required placeholder="confirm password">
                 </div>
 
                 <div class="checkbox-content">
@@ -35,7 +36,7 @@
                 </div>
 
                 <div class="submit-box">
-                    <button class="button" href="customize.html"><a href="customize.html">Continue</a></button>
+                    <button type="submit" class="button" href="customize.html"><a href="customize.html">Continue</a></button>
                 </div>
 
             </form>
