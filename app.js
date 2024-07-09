@@ -1,3 +1,7 @@
+/*
+npm i
+node app
+*/
 const express = require('express')
 const server = express()
 require('dotenv').config();
@@ -8,10 +12,9 @@ server.use(express.urlencoded({ extended: true }));
 const router = require('./src/routes/Router.js')
 const handlebars = require('express-handlebars');
 //const initData = require('script/DatabaseInit');
-
+const connectToMongo = require('./src/conn.js');
 
 var hbs = require('handlebars');
-//const connMongo = require('/src/conn.js')
 
 server.set('view engine', 'hbs');
 server.engine('hbs', handlebars.engine({
@@ -22,8 +25,9 @@ server.set("view cache", false);
 server.use(express.static('public'));
 server.use(router);
 
-
 const port = process.env.PORT || 9090;
 server.listen(port, async function(){
+    await connectToMongo();
+    console.log('Connected to MongoDB.');
     console.log('Listening at port '+ port);
 });
