@@ -23,6 +23,13 @@ router.get('/register', (req, resp) => {
     })
 })
 
+router.get('/home', (req, resp) =>{
+    resp.render('home', {
+        layout: 'homelayout',
+        title: 'Homepage'
+    });
+});
+
 router.get('/profile', (req, resp) => {
     resp.render('profile', {
         layout: 'profilelayout',

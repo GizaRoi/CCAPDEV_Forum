@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('btn-log').addEventListener('click', async () => {
+    document.getElementById('op-username').addEventListener('click', async () => {
         try {
-            const response = await fetch('/login');
+            const response = await fetch('/profile');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -10,4 +10,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
