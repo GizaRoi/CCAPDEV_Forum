@@ -1,0 +1,46 @@
+<body>
+    <div class="wrapper">
+        <span class="close-button">
+            <a href="/"><ion-icon name="close-outline"></ion-icon></a>
+        </span>
+
+        <div class="form-box">
+            <div class="welcome-msg">
+                <h3>Welcome to FoRoom, @{{username}}</h3>
+                <h5>Customize your account so your roomies know it's you.</h5>
+            </div>
+
+            <form action="/customize" method="POST" class="input-group">
+                <input type="hidden" name="username" value="{{username}}">
+
+                <div class="upload-photo">
+                    <label for="profilepicture">Profile Picture URL</label>
+                    <input type="text" id="profilepicture" name="profilepicture" class="input-field" placeholder="Profile Picture URL">
+                </div>
+
+                <div class="centered-text">
+                    <span>or you can choose from these avatars!</span>
+                </div>
+                <div class="prof-images">
+                    <img src="images/prof-1.png" alt="Profile 1">
+                    <img src="images/prof-2.png" alt="Profile 2">
+                    <img src="images/prof-3.png" alt="Profile 3">
+                    <img src="images/prof-4.png" alt="Profile 4">
+                    <img src="images/prof-5.png" alt="Profile 5">
+                </div>
+
+                <div class="bio-box">
+                    <label for="bio">Add Bio</label>
+                    <textarea id="bio" name="bio" placeholder="Write something about yourself..."></textarea>
+                </div>
+
+                <div class="next-button">
+                    <button type="submit">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>

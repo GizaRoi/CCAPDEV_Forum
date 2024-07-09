@@ -47,10 +47,46 @@ router.get('/editprofile', (req, res) => {
     });
 });
 
+router.get('/customize', (req, res) => {
+    res.render('customize', {
+        layout: 'customizelayout',
+        title: 'Customize'
+    });
+});
+
+
+
+
+// // Handle registration
+// router.post('/register', async (req, res) => {
+//     const { username, password } = req.body;
+//     const hashedPassword = await bcrypt.hash(password, 4);
+
+//     try {
+//         const newUser = new User({
+//             username,
+//             password: hashedPassword
+//         });
+//         await newUser.save();
+//         res.render('login', {
+//             layout: 'loginlayout',
+//             title: 'Login',
+//             message: 'Registration successful! Please log in.'
+//         });
+//     } catch (error) {
+//         console.error('Error registering user:', error);
+//         res.render('register', {
+//             layout: 'loginlayout',
+//             title: 'Register',
+//             error: 'Registration failed. Username might be already taken.'
+//         });
+//     }
+// });
+
 // Handle registration
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 4);
 
     try {
         const newUser = new User({
@@ -58,17 +94,47 @@ router.post('/register', async (req, res) => {
             password: hashedPassword
         });
         await newUser.save();
-        res.render('login', {
-            layout: 'loginlayout',
-            title: 'Login',
-            message: 'Registration successful! Please log in.'
-        });
+        // Redirect to customize page after successful registration
+        res.redirect(`/customize?username=${username}`);
+        console.error('customizing user');
     } catch (error) {
         console.error('Error registering user:', error);
         res.render('register', {
             layout: 'loginlayout',
             title: 'Register',
             error: 'Registration failed. Username might be already taken.'
+        });
+    }
+});
+
+router.get('/customize', (req, res) => {
+    const { username } = req.query;
+    res.render('customize', {
+        layout: 'customizelayout',
+        title: 'Customize',
+        username: username
+    });
+});
+
+router.post('/customize', async (req, res) => {
+    const { username, profilepicture, bio } = req.body;
+
+    try {
+        // Update user profile with customization details
+        await User.findOneAndUpdate({ username }, { profilepicture, bio });
+        // Redirect to login page after customization
+        res.render('login', {
+            layout: 'loginlayout',
+            title: 'Login',
+            message: 'Profile customization successful! Please log in.'
+        });
+    } catch (error) {
+        console.error('Error customizing profile:', error);
+        res.render('customize', {
+            layout: 'customizelayout',
+            title: 'Customize',
+            error: 'Customization failed. Please try again.',
+            username: username
         });
     }
 });
