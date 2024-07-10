@@ -31,6 +31,19 @@ if (fs.existsSync(profiledetailPath)) {
     console.warn(`File ${profiledetailPath} NOT found.`);
 }
 
+let home2Data = {}; // Corrected variable name
+const home2Path = 'home2.json';
+if (fs.existsSync(dataPath)) {
+    try {
+        home2Data = JSON.parse(fs.readFileSync(home2Path, 'utf8'));
+        console.log(`File ${home2Path} found.`);
+    } catch (error) {
+        console.error('Error reading home2.json:', error);
+    }
+} else {
+    console.warn(`File ${home2Path} NOT found.`);
+}
+
 //GUESTHOME
 router.get('/', (req, res) => {
     res.render('guesthome', {
@@ -83,6 +96,7 @@ router.get('/home', (req, res) => {
 //whats popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
+        posts: home2Data.posts,
         layout: 'homelayout',
         title: 'Popular',
         isLoggedIn: true
@@ -97,11 +111,6 @@ router.get('/customize', (req, res) => {
         username: user.username
     });
 });
-
-
-
-
-
 
 
 // Handle registration
@@ -177,6 +186,9 @@ router.get('/profile', (req, res) => {
         username : profileData.username,
         profilepicture: profileData.profilepicture,
         bio: profileData.bio,
+        titlepost: profileData.title,
+        description: profileData.description,
+        date : profileData.date,
         layout: 'profilelayout',
         title: 'User Profile'
     });
