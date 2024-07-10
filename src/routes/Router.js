@@ -5,17 +5,19 @@ const router = express.Router();
 const fs = require('fs');
 
 // Read data from JSON file for home page
-let data = {};
-try {
-    const dataPath = 'models/sampledata/home.json';
-    if (fs.existsSync(dataPath)) {
-        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    } else {
-        console.warn(`File ${dataPath} not found.`);
+let jsonData = {}; // Corrected variable name
+const dataPath = 'home.json';
+if (fs.existsSync(dataPath)) {
+    try {
+        jsonData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        console.log(`File ${dataPath} found.`);
+    } catch (error) {
+        console.error('Error reading home.json:', error);
     }
-} catch (error) {
-    console.error('Error reading home.json:', error);
+} else {
+    console.warn(`File ${dataPath} NOT found.`);
 }
+
 
 router.get('/', (req, res) => {
     res.render('guesthome', {
@@ -41,7 +43,9 @@ router.get('/register', (req, res) => {
 
 router.get('/home', (req, res) => {
     res.render('home', {
-        data: data,
+        popularPosts: jsonData.popularPosts,
+        posts: jsonData.posts,
+        popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Homepage',
         isLoggedIn: true
@@ -67,7 +71,7 @@ router.get('/customize', (req, res) => {
 // Handle registration
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10); // Increased bcrypt rounds for security
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
         const newUser = new User({
@@ -121,7 +125,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
 
 router.get('/profile', (req, res) => {
     res.render('profile', {
@@ -149,14 +152,10 @@ router.get('/editprofile', (req, res) => {
     });
 });
 
-=======
-// Handle profile update
->>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
 router.post('/editprofile', async (req, res) => {
     const { username, profilepicture, bio } = req.body;
 
     try {
-<<<<<<< HEAD
         console.log('Updating profile for user:', username);
         console.log('Profile picture:', profilepicture);
         console.log('Bio:', bio);
@@ -164,14 +163,6 @@ router.post('/editprofile', async (req, res) => {
         await User.findOneAndUpdate({ username }, { profilepicture, bio });
         // Redirect to profile page after customization
         res.redirect(`/profile?username=${username}`);
-=======
-        await User.findOneAndUpdate({ username }, { profilepicture, bio });
-        res.render('profile', {
-            layout: 'profilelayout',
-            title: 'Profile',
-            message: 'Updated Profile.'
-        });
->>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
     } catch (error) {
         console.error('Error updating profile:', error);
         res.render('editprofile', {
