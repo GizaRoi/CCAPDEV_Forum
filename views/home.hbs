@@ -1,21 +1,20 @@
-{{>header}}
+{{> header}}
 
 <div class="body">
-
-    {{>sidebar_left}}
+    {{> sidebar_left}}
 
     <div class="container">
         <div class="top-body">
             <div class="Title">What's popular?</div>
-            <ul class="popular-posts"> 
+            <ul class="popular-posts">
                 {{#each popularPosts}}
                 <li class="popular-content">
                     <div class="captions"></div>
                     <h5><strong>{{title}}</strong></h5>
-                    <h6>{{description}}</h6>
+                    <h6>{{summary}}</h6>
                     <div class="profile-img-cap">
-                        <img src="{{imgSrc}}">  
-                        <span class="room-name">{{roomName}}</span>
+                        <img src="{{image}}">
+                        <span class="room-name">{{room}}</span>
                     </div>
                 </li>
                 {{/each}}
@@ -28,12 +27,12 @@
                 <div class="lineh"></div>
                 <a href="/home"></a>
                 <div class="post-header">
-                    <div class="op-pfp"><img id="pfp5" src="{{opImg}}"/></div>
+                    <div class="op-pfp"><img id="pfp5" src="{{opPfp}}"/></div>
                     <div class="post-info">
-                        <div class="op-username" id="op-username">by <a href="/profile">{{username}}</a> • {{date}}</div>
+                        <div class="op-username" id="op-username">by <a href="/profile">@{{opUsername}}</a> • {{date}}</div>
                         <div class="room">
-                            <img id="fr1" src="{{roomImg}}"/>
-                            <span class="roomname">{{roomName}}</span>
+                            <img id="fr1" src="{{roomImage}}"/>
+                            <span class="roomname">{{room}}</span>
                         </div>
                     </div>
                 </div>
@@ -43,12 +42,12 @@
                 </div>
                 <div class="post-footer">
                     <div class="votes">
-                        <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{upvote}}</span>
-                        <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{downvote}}</span>
-                        <ion-icon name="chatbubble-outline"></ion-icon><span class="replynum">{{replynum}}</span>
+                        <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{upvotes}}</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{downvotes}}</span>
+                        <ion-icon name="chatbubble-outline"></ion-icon><span class="replynum">{{comments}}</span>
                     </div>
                 </div>
-            </button> 
+            </button>
             {{/each}}
         </div>
 
@@ -59,7 +58,7 @@
         <div class="Rooms-list">
             {{#each popularRooms}}
             <div class="Rooms-img">
-                <img src="{{imgSrc}}">
+                <img src="{{image}}">
                 <div class="room-name">
                     <strong>{{name}}</strong> <br />
                     <h6>{{members}} members</h6>
@@ -70,9 +69,8 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{{> footer}}
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
