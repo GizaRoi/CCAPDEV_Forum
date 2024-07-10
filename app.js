@@ -31,7 +31,7 @@ server.use(express.static('public'));
 server.use(router);
 
 //server listen
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 3000;
 server.listen(port, async function(){
     await connectToMongo();
     console.log('Connected to MongoDB.');
