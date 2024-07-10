@@ -205,4 +205,12 @@ router.post('/editprofile', async (req, res) => {
     }
 });
 
+router.get('/post', (req, res) => {
+    res.render('post', {
+        layout: 'postlayout',
+        title: 'Post | FoRoom',
+        isPost: true
+    })
+});
+
 module.exports = router;
