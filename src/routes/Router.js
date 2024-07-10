@@ -1,15 +1,29 @@
 const express = require('express');
-const bcrypt = require('bcrypt'); // Add this line to import bcrypt
+const bcrypt = require('bcrypt');
 const User = require('../models/Users');
 const router = express.Router();
+const fs = require('fs');
 
-router.get('/', function(req, res) {
+// Read data from JSON file for home page
+let data = {};
+try {
+    const dataPath = 'models/sampledata/home.json';
+    if (fs.existsSync(dataPath)) {
+        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    } else {
+        console.warn(`File ${dataPath} not found.`);
+    }
+} catch (error) {
+    console.error('Error reading home.json:', error);
+}
+
+router.get('/', (req, res) => {
     res.render('guesthome', {
         layout: 'homelayout',
         title: 'FoRoom',
         isLoggedIn: false
-    })
-})
+    });
+});
 
 router.get('/login', (req, res) => {
     res.render('login', {
@@ -27,6 +41,7 @@ router.get('/register', (req, res) => {
 
 router.get('/home', (req, res) => {
     res.render('home', {
+        data: data,
         layout: 'homelayout',
         title: 'Homepage',
         isLoggedIn: true
@@ -41,19 +56,6 @@ router.get('/home2', (req, res) => {
     });
 });
 
-router.get('/profile', (req, res) => {
-    res.render('profile', {
-        layout: 'profilelayout',
-        title: 'User Profile'
-    });
-});
-
-router.get('/editprofile', (req, res) => {
-    res.render('editprofile', {
-        layout: 'editprofile',
-        title: 'Edit Profile'
-    });
-});
 
 router.get('/customize', (req, res) => {
     res.render('customize', {
@@ -65,7 +67,7 @@ router.get('/customize', (req, res) => {
 // Handle registration
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 4);
+    const hashedPassword = await bcrypt.hash(password, 10); // Increased bcrypt rounds for security
 
     try {
         const newUser = new User({
@@ -73,47 +75,13 @@ router.post('/register', async (req, res) => {
             password: hashedPassword
         });
         await newUser.save();
-        // Redirect to customize page after successful registration
         res.redirect(`/customize?username=${username}`);
-        console.error('customizing user');
     } catch (error) {
         console.error('Error registering user:', error);
         res.render('register', {
             layout: 'loginlayout',
             title: 'Register',
             error: 'Registration failed. Username might be already taken.'
-        });
-    }
-});
-
-router.get('/customize', (req, res) => {
-    const { username } = req.query;
-    res.render('customize', {
-        layout: 'customizelayout',
-        title: 'Customize',
-        username: username
-    });
-});
-
-router.post('/customize', async (req, res) => {
-    const { username, profilepicture, bio } = req.body;
-
-    try {
-        // Update user profile with customization details
-        await User.findOneAndUpdate({ username }, { profilepicture, bio });
-        // Redirect to login page after customization
-        res.render('login', {
-            layout: 'loginlayout',
-            title: 'Login',
-            message: 'Profile customization successful! Please log in.'
-        });
-    } catch (error) {
-        console.error('Error customizing profile:', error);
-        res.render('customize', {
-            layout: 'customizelayout',
-            title: 'Customize',
-            error: 'Customization failed. Please try again.',
-            username: username
         });
     }
 });
@@ -125,21 +93,18 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            // Username does not exist
             res.render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
                 error: 'Username does not exist.'
             });
         } else if (user && await bcrypt.compare(password, user.password)) {
-            // Successful login
-            res.render('home', { 
+            res.render('home', {
                 layout: 'homelayout',
                 title: 'FoRoom',
                 username: user.username
             });
         } else {
-            // Password incorrect
             res.render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
@@ -148,42 +113,74 @@ router.post('/login', async (req, res) => {
         }
     } catch (error) {
         console.error('Error during login:', error);
-        // res.render('login', {
-        //     layout: 'loginlayout',
-        //     title: 'Login',
-        //     error: 'An error occurred. Please try again.'
-        // });
-
-        res.render('home', { 
-            layout: 'homelayout',
-            title: 'FoRoom',
-            username: user.username
+        res.render('login', {
+            layout: 'loginlayout',
+            title: 'Login',
+            error: 'An error occurred. Please try again.'
         });
     }
 });
 
+<<<<<<< HEAD
 
+router.get('/profile', (req, res) => {
+    res.render('profile', {
+        layout: 'profilelayout',
+        title: 'User Profile'
+    });
+});
+
+router.get('/editprofile', (req, res) => {
+    const username = req.query.username;
+    User.findOne({ username }, (err, user) => {
+        if (err) {
+            console.error('Error fetching profile for edit:', err);
+            return res.render('editprofile', {
+                layout: 'editprofile',
+                title: 'Edit Profile',
+                error: 'Error fetching profile for edit.'
+            });
+        }
+        res.render('editprofile', {
+            layout: 'editprofile',
+            title: 'Edit Profile',
+            user
+        });
+    });
+});
+
+=======
+// Handle profile update
+>>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
 router.post('/editprofile', async (req, res) => {
     const { username, profilepicture, bio } = req.body;
+
     try {
+<<<<<<< HEAD
+        console.log('Updating profile for user:', username);
+        console.log('Profile picture:', profilepicture);
+        console.log('Bio:', bio);
         // Update user profile with customization details
         await User.findOneAndUpdate({ username }, { profilepicture, bio });
-        // Redirect to login page after customization
+        // Redirect to profile page after customization
+        res.redirect(`/profile?username=${username}`);
+=======
+        await User.findOneAndUpdate({ username }, { profilepicture, bio });
         res.render('profile', {
             layout: 'profilelayout',
             title: 'Profile',
             message: 'Updated Profile.'
         });
+>>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
     } catch (error) {
         console.error('Error updating profile:', error);
         res.render('editprofile', {
             layout: 'editprofile',
-            title: 'Update Profile',
+            title: 'Edit Profile',
             error: 'Updating profile failed. Please try again.',
             username: username
         });
     }
 });
-
 
 module.exports = router;
