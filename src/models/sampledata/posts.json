@@ -1,79 +1,54 @@
-[
-  {
-      "user": "User ObjectId here", 
-      "title": "The DOTA2 situation is so nakakahiya",
-      "date": "2024-06-04T00:00:00Z",
-      "room": "fr/DeLozol",
-      "post": "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
-      "up": 402,
-      "down": 96,
-      "replies": [
-          {
-              "user": "User ObjectId here",
-              "reply": "Sample reply content",
-              "date": "2024-06-04T00:00:00Z",
-              "up": 10,
-              "down": 2,
-              "replies": [
-                  {
-                      "user": "User ObjectId here",
-                      "reply": "Sample child reply content",
-                      "date": "2024-06-04T00:00:00Z",
-                      "up": 5,
-                      "down": 1
-                  }
-              ]
-          }
-      ]
-  },
-  {
-      "user": "User ObjectId here",
-      "title": "Summer Fashion Tips fls",
-      "date": "2024-06-04T00:00:00Z",
-      "room": "fr/fashion",
-      "post": "Summer's here and i'm looking for some fresh outfit ideas to beat the heat while staying stylish. Can any of u guys recommend any? TIA!!!",
-      "up": 252,
-      "down": 5,
-      "replies": []
-  },
-  {
-      "user": "User ObjectId here",
-      "title": "Dark mode or light mode???",
-      "date": "2024-06-04T00:00:00Z",
-      "room": "fr/programmer",
-      "post": "Do you guys prefer coding in dark mode or light mode? I've been using dark mode for years but thinking of switching it up. What are your thoughts?",
-      "up": 65,
-      "down": 0,
-      "replies": []
-  },
-  {
-      "user": "User ObjectId here",
-      "title": "DIY cat toys",
-      "date": "2024-06-04T00:00:00Z",
-      "room": "fr/catLovers",
-      "post": "I'm thinking of making some DIY toys for my cats. Any simple and fun ideas that your kitties love? Would love to hear some suggestions!!! tysm..",
-      "up": 120,
-      "down": 0,
-      "replies": []
-  },
-  {
-      "user": "User ObjectId here",
-      "title": "Thrift shop finds",
-      "date": "2024-06-03T00:00:00Z",
-      "room": "fr/fashion",
-      "post": "Went thrifting today and found some amazing vintage pieces! Anyone else love thrifting as much as I do? Share your best finds!!",
-      "up": 34,
-      "down": 3,
-      "replies": []
-  },
-  {
-      "user": "User ObjectId here",
-      "title": "Wifi situation is getting worse",
-      "date": "2024-06-03T00:00:00Z",
-      "room": "fr/DeLozol",
-      "post": "Why is the campus wifi always so slow?! 2024 na and we still can't get a stable connection. Im trying to study in the library but the internet is barely working. Hope this gets fixed soon.",
-      "up": 22,
-      "down": 17,
-      "replies": []
-  }
-]
+{
+  "posts": [
+      {
+          "user": "@juan01",
+          "title": "The DOTA2 situation is so nakakahiya",
+          "date": "2024-06-04T00:00:00.000Z",
+          "room": "fr/DeLozol",
+          "post": "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
+          "up": 402,
+          "down": 96,
+          "replies": [
+              {
+                  "user": "@azaVelasquez",
+                  "reply": "Yeah it's kinda annoying but I guess that's the life we gotta live as Lozollians.",
+                  "date": "2024-06-04T00:00:00.000Z",
+                  "up": 25,
+                  "down": 2,
+                  "replies": [
+                      {
+                          "user": "@vince34",
+                          "reply": "Welllll you guys kinda deserve it. Mga iyakin haha.",
+                          "date": "2024-06-04T00:00:00.000Z",
+                          "up": 3,
+                          "down": 50
+                      },
+                      {
+                          "user": "@juan01",
+                          "reply": "Yo stop fighting di naman kayo yung naglalaro hahahaha",
+                          "date": "2024-06-04T00:00:00.000Z",
+                          "up": 1,
+                          "down": 60
+                      }
+                  ]
+              },
+              {
+                  "user": "@roiMark",
+                  "reply": "RULES ARE RULES LOL",
+                  "date": "2024-06-04T00:00:00.000Z",
+                  "up": 1,
+                  "down": 70,
+                  "replies": [
+                      {
+                          "user": "@gabLlenarex12",
+                          "reply": "Yeah but those rules were completely trash. Banter is embedded into Esports Culture.",
+                          "date": "2024-06-04T00:00:00.000Z",
+                          "up": 300,
+                          "down": 1
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

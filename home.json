@@ -145,5 +145,108 @@
         "image": "images/frpc.jpeg"
       }
     ]
+,
+"post": {
+    "author": "juan01",
+    "date": "June 4, 2024",
+    "roomImage": "images/FRdelozol.jpg",
+    "roomName": "fr/DeLozol",
+    "title": "The DOTA2 situation is so nakakahiya",
+    "content": "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
+    "upvotes": 402,
+    "downvotes": 96,
+    "replies": 5
+  },
+  "replies": [
+    {
+      "author": "azaVelasquez",
+      "date": "June 4, 2024",
+      "profilePic": "images/prof-4.png",
+      "content": "Yeah it's kinda annoying but I guess that's the life we gotta live as Lozollians.",
+      "upvotes": 25,
+      "downvotes": 2,
+      "replies": 2,
+      "children": [
+        {
+          "author": "vince34",
+          "date": "June 4, 2024",
+          "profilePic": "images/prof-3.png",
+          "content": "Welllll you guys kinda deserve it. Mga iyakin haha.",
+          "upvotes": 3,
+          "downvotes": 50,
+          "replies": 0
+        },
+        {
+          "author": "juan01",
+          "date": "June 4, 2024",
+          "profilePic": "images/prof-5.png",
+          "content": "Yo stop fighting di naman kayo yung naglalaro hahahaha",
+          "upvotes": 1,
+          "downvotes": 60,
+          "replies": 0
+        }
+      ]
+    },
+    {
+      "author": "roiMark",
+      "date": "June 4, 2024",
+      "profilePic": "images/prof-2.png",
+      "content": "RULES ARE RULES LOL",
+      "upvotes": 1,
+      "downvotes": 70,
+      "replies": 1,
+      "children": [
+        {
+          "author": "gabLlenarex12",
+          "date": "June 4, 2024",
+          "profilePic": "images/prof-1.png",
+          "content": "Yeah but those rules were completely trash. Banter is embedded into Esports Culture.",
+          "upvotes": 300,
+          "downvotes": 1,
+          "replies": 0
+        }
+      ]
+    }
+  ],
+"rooms": [
+    {
+      "name": "fr/worldnews",
+      "members": "6,339,495",
+      "image": "images/FRworldnews.png"
+    },
+    {
+      "name": "fr/DeLozol",
+      "members": "43,542",
+      "image": "images/FRdelozol.jpg"
+    },
+    {
+      "name": "fr/fashion",
+      "members": "1,459,235",
+      "image": "images/FRfashion.png"
+    },
+    {
+      "name": "fr/games",
+      "members": "1,039,645",
+      "image": "images/FRgames.png"
+    },
+    {
+      "name": "fr/memes",
+      "members": "4,569,445",
+      "image": "images/frmemes.png"
+    },
+    {
+      "name": "fr/catLovers",
+      "members": "454,356",
+      "image": "images/FRcatLovers.png"
+    },
+    {
+      "name": "fr/programmer",
+      "members": "6,345",
+      "image": "images/FRprogrammer.png"
+    }
+  ]
+
+
+
   }
   

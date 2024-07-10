@@ -57,6 +57,16 @@ router.get('/register', (req, res) => {
     });
 });
 
+router.get('/post', (req, res) => {
+    res.render('post', {
+        rooms: jsonData.rooms,
+        replies: jsonData.replies,
+        children: jsonData.children,
+        layout: 'postlayout',
+        title: 'Post'
+    });
+});
+
 //logged in home
 router.get('/home', (req, res) => {
     res.render('home', {
@@ -65,7 +75,8 @@ router.get('/home', (req, res) => {
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Homepage',
-        isLoggedIn: true
+        isLoggedIn: true,
+        
     });
 });
 
@@ -82,9 +93,16 @@ router.get('/home2', (req, res) => {
 router.get('/customize', (req, res) => {
     res.render('customize', {
         layout: 'customizelayout',
-        title: 'Customize'
+        title: 'Customize',
+        username: user.username
     });
 });
+
+
+
+
+
+
 
 // Handle registration
 router.post('/register', async (req, res) => {
