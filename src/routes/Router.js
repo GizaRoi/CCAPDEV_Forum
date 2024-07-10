@@ -33,6 +33,14 @@ router.get('/home', (req, res) => {
     });
 });
 
+router.get('/home2', (req, res) => {
+    res.render('home2', {
+        layout: 'homelayout',
+        title: 'Popular',
+        isLoggedIn: true
+    });
+});
+
 router.get('/profile', (req, res) => {
     res.render('profile', {
         layout: 'profilelayout',
@@ -155,7 +163,7 @@ router.post('/login', async (req, res) => {
             });
         } else if (user && await bcrypt.compare(password, user.password)) {
             // Successful login
-            res.render('home2', {
+            res.render('home', { 
                 layout: 'homelayout',
                 title: 'FoRoom',
                 username: user.username
@@ -174,6 +182,29 @@ router.post('/login', async (req, res) => {
             layout: 'loginlayout',
             title: 'Login',
             error: 'An error occurred. Please try again.'
+        });
+    }
+});
+
+
+router.post('/editprofile', async (req, res) => {
+    const { username, profilepicture, bio } = req.body;
+    try {
+        // Update user profile with customization details
+        await User.findOneAndUpdate({ username }, { profilepicture, bio });
+        // Redirect to login page after customization
+        res.render('profile', {
+            layout: 'profilelayout',
+            title: 'Profile',
+            message: 'Updated Profile.'
+        });
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.render('editprofile', {
+            layout: 'editprofile',
+            title: 'Update Profile',
+            error: 'Updating profile failed. Please try again.',
+            username: username
         });
     }
 });
