@@ -6,15 +6,16 @@ const fs = require('fs');
 
 // Read data from JSON file for home page
 let data = {};
-try {
-    const dataPath = 'models/sampledata/home.json';
-    if (fs.existsSync(dataPath)) {
+const dataPath = 'home.json';
+if (fs.existsSync(dataPath)) {
+    try {
         data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    } else {
-        console.warn(`File ${dataPath} not found.`);
+        console.log(`File ${dataPath} found.`);
+    } catch (error) {
+        console.error('Error reading home.json:', error);
     }
-} catch (error) {
-    console.error('Error reading home.json:', error);
+} else {
+    console.warn(`File ${dataPath} NOT found.`);
 }
 
 router.get('/', (req, res) => {
