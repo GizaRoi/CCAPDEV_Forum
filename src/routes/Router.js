@@ -75,8 +75,7 @@ router.get('/home', (req, res) => {
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Homepage',
-        isLoggedIn: true,
-        username: user.username
+        isLoggedIn: true
         
     });
 });
@@ -90,8 +89,8 @@ router.get('/home2', (req, res) => {
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Popular',
-        isLoggedIn: true,
-        username: user.username
+        isLoggedIn: true
+        
     });
 });
 
