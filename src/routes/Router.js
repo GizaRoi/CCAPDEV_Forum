@@ -186,52 +186,42 @@ router.get('/profile', (req, res) => {
 });
 
 router.get('/editprofile', (req, res) => {
-    const username = req.query.username;
-    User.findOne({ username }, (err, user) => {
-        if (err) {
-            console.error('Error fetching profile for edit:', err);
-            return res.render('editprofile', {
-                layout: 'editprofile',
-                title: 'Edit Profile',
-                error: 'Error fetching profile for edit.'
-            });
-        }
-        res.render('editprofile', {
-            layout: 'editprofile',
-            title: 'Edit Profile',
-            user
-        });
+    res.render('/profile', {
+        profilepicture: profileData.profilepicture,
+        bio: profileData.bio,
+        layout: 'profileLayout',
+        title: 'Edit Profile'
     });
 });
 
-router.post('/editprofile', async (req, res) => {
-    const { username, profilepicture, bio } = req.body;
-
-    try {
-        console.log('Updating profile for user:', username);
-        console.log('Profile picture:', profilepicture);
-        console.log('Bio:', bio);
-        // Update user profile with customization details
-        await User.findOneAndUpdate({ username }, { profilepicture, bio });
-        // Redirect to profile page after customization
-        res.redirect(`/profile?username=${username}`);
-    } catch (error) {
-        console.error('Error updating profile:', error);
-        res.render('editprofile', {
-            layout: 'editprofile',
-            title: 'Edit Profile',
-            error: 'Updating profile failed. Please try again.',
-            username: username
-        });
-    }
-});
 
 router.get('/post', (req, res) => {
     res.render('post', {
         layout: 'postlayout',
         title: 'Post | FoRoom',
         isPost: true
-    })
+    });
+});
+
+router.get('/createpost', (req, res) => {
+    res.render('createpost', {
+        layout: 'createpostlayout',
+        title: 'Create Post',
+    });
+});
+
+router.get('/editcomment', (req, res) => {
+    res.render('editcomment', {
+        layout: 'editcommentlayout',
+        title: 'Edit Comment',
+    });
+});
+
+router.get('/editpost', (req, res)=> {
+    res.render('editpost', {
+        layout: 'editpostlayout',
+        title: 'Edit Post',
+    });
 });
 
 module.exports = router;

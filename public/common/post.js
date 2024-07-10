@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('op-username').addEventListener('click', async () => {
+    document.getElementById('editdelete').addEventListener('click', async () => {
         try {
-            const response = await fetch('/profile');
+            const response = await fetch('/editcomment');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('popular').addEventListener('click', async () => {
+    document.getElementById('editdelete').addEventListener('click', async () => {
         try {
-            const response = await fetch('/home2');
+            const response = await fetch('/editpost');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
