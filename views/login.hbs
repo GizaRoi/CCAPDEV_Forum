@@ -1,4 +1,3 @@
-
 <div class="wrapper">
     <span class="close-button">
         <a href="/"><ion-icon name="close-outline"></ion-icon></a>
@@ -10,33 +9,37 @@
         <div class="welcome-msg">
             <h3>Welcome back to FoRoom.</h3>
             <h4>New Here? <a href="/register">Create an account</a></h4>
-            <h4>Access the site as a <a href="/home2">Guest</a></h4>
+            <h4>Access the site as a <a href="/">Guest</a></h4>
         </div>
 
         <form action="/login" method="POST" class="input-group">
 
             <div class="input-box">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="input-field" required>
+                <input type="username" id="username" name="username" class="input-field" placeholder="username"required>
             </div>
 
             <div class="input-box">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="input-field" required>
-                <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
+                <input type="password" id="password" name="password" class="input-field" placeholder="password"  required>
+                
             </div>
+
+                    {{#if error}}
+        <div class="error-msg">
+            <p>{{error}}</p>
+        </div>
+        {{/if}}
 
             <div class="checkbox-content">
                 <label><input type="checkbox" name="remember">Remember this device</label>
             </div>
 
             <div class="submit-box">
-                <button type="submit" class="button">Sign In</button>
+                <button type="submit" class="button" id="signIn">Sign In</button>
             </div>
 
         </form>
-
-        
     </div>
 </div>
 

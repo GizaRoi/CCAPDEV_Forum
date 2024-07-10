@@ -7,13 +7,13 @@
             <main>
                 <section class="profile">
                     <div class="profile-header">
-                        <img src="images/prof-5.png" class="profile-pic" alt="Profile Picture">
+                        <img src="{{user.profilepicture}}" class="profile-pic" alt="Profile Picture">
                         <div class="profile-info">
-                            <h2>@juan01</h2>
+                            <h2>{{user.username}}</h2>
                             <span class="followers">10.0k followers</span>
-                            <p class="bio">DLSU💚🏹| Video games👾</p>
+                            <p class="bio">{{bio}}</p>
                         </div>
-                        <button id="edit-profile-button" href="/editprofile"><ion-icon name="create-outline"></ion-icon></button>
+                        <button id="edit-profile-button"><ion-icon name="create-outline"></ion-icon></button>
                     </div>
                 </section>
                 <section class="posts">
@@ -32,7 +32,7 @@
     <div id="edit-profile-modal" class="modal" href="/editprofile">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="/editprofile" method="POST" enctype="multipart/form-data">
                 <h2>Edit Profile</h2>
                 <label for="profile-picture">Profile Picture</label>
                 <input type="file" id="profile-picture" name="profile-picture">

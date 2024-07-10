@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('edit-profile-button').addEventListener('click', async () => {
+    document.getElementById('edit-profile-modal').addEventListener('click', async () => {
         try {
             const response = await fetch('/editprofile');
             if (!response.ok) {

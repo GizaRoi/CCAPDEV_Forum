@@ -20,6 +20,12 @@ const UserSchema = new Schema({
     bio: {
         type: String
     },
+
+    userAgreement: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
 
