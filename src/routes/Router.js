@@ -18,7 +18,7 @@ if (fs.existsSync(dataPath)) {
     console.warn(`File ${dataPath} NOT found.`);
 }
 
-
+//GUESTHOME
 router.get('/', (req, res) => {
     res.render('guesthome', {
         layout: 'homelayout',
@@ -41,6 +41,7 @@ router.get('/register', (req, res) => {
     });
 });
 
+//logged in home
 router.get('/home', (req, res) => {
     res.render('home', {
         popularPosts: jsonData.popularPosts,
@@ -52,6 +53,7 @@ router.get('/home', (req, res) => {
     });
 });
 
+//whats popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
         layout: 'homelayout',
@@ -103,10 +105,19 @@ router.post('/login', async (req, res) => {
                 error: 'Username does not exist.'
             });
         } else if (user && await bcrypt.compare(password, user.password)) {
+            // res.render('/home', {
+            //     layout: 'homelayout',
+            //     title: 'FoRoom',
+            //     username: user.username
+            // });
+
             res.render('home', {
+                popularPosts: jsonData.popularPosts,
+                posts: jsonData.posts,
+                popularRooms: jsonData.popularRooms,
                 layout: 'homelayout',
-                title: 'FoRoom',
-                username: user.username
+                title: 'Homepage',
+                isLoggedIn: true
             });
         } else {
             res.render('login', {
