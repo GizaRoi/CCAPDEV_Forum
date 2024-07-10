@@ -6,6 +6,8 @@ const express = require('express')
 const server = express()
 require('dotenv').config();
 
+const fs = require('fs');
+
 const mongoose = require('mongoose'); //import
 
 const bodyParser = require('body-parser')
