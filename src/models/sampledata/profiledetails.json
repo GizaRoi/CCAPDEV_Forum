@@ -1,30 +1,35 @@
 [
     {
         "username" : "juan01",
+        "followers" : "10.0k followers",
         "profilepicture" : "images/prof-5.png",
         "bio" : "DLSU💚🏹| Video games👾"
     },
 
     {
         "username" : "roiMark",
+        "followers" : "8.2k followers",
         "profilepicture" : "images/prof-2.png",
         "bio" : "Gym grind never stops 💪 | Living that healthy lifestyle 🍏🏋️‍♂️"
     },
 
     {
         "username" : "gabLlenarez12",
+        "followers" : "4.5k followers",
         "profilepicture" : "images/prof-1.png",
         "bio" : "Living my best life ✨ | Social media addict 📸📱 | Here for the vibes 🥳"
     },
 
     {
         "username" : "azaVelasquez",
+        "followers" : "12.3k followers",
         "profilepicture" : "images/prof-4.png",
         "bio" : "Fur baby parent 🐾 | Animal rescue advocate 🌟 | Pets are family 🐕🐈"
     },
 
     {
         "username" : "vince34",
+        "followers" : "2.3k followers",
         "profilepicture" : "images/prof-3.png",
         "bio" : "Living in a digital world 🌐📱 | Coding my dreams into reality 💻✨"
     }

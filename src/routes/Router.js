@@ -18,9 +18,25 @@ if (fs.existsSync(dataPath)) {
     console.warn(`File ${dataPath} NOT found.`);
 }
 
+let profileData = {};
+const profiledetailPath = 'profiledetails.json';
+if (fs.existsSync(profiledetailPath)) {
+    try {
+        profileData = JSON.parse(fs.readFileSync(profiledetailPath, 'utf8'));
+        console.log(`File ${profiledetailPath} found.`);
+    } catch (error) {
+        console.error('Error reading home.json:', error);
+    }
+} else {
+    console.warn(`File ${profiledetailPath} NOT found.`);
+}
+
 //GUESTHOME
 router.get('/', (req, res) => {
     res.render('guesthome', {
+        popularPosts: jsonData.popularPosts,
+        posts: jsonData.posts,
+        popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'FoRoom',
         isLoggedIn: false
@@ -139,6 +155,9 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('profile', {
+        username : profileData.username,
+        profilepicture: profileData.profilepicture,
+        bio: profileData.bio,
         layout: 'profilelayout',
         title: 'User Profile'
     });
