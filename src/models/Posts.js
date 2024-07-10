@@ -55,7 +55,8 @@ const PostSchema = new Schema({
         default: Date.now
     },
     room: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Room',
         required: true,
     },
     post: {
@@ -73,6 +74,6 @@ const PostSchema = new Schema({
 
 const Post = model('posts', PostSchema);
 const Reply = model('replies', ReplySchema);
-const ChildReply = model('child_replies', ReplySchema);
+const ChildReply = model('child_replies', ChildReplySchema);
 
 module.exports = { Post, Reply, ChildReply };
