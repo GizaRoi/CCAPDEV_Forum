@@ -6,7 +6,7 @@ const fs = require('fs');
 
 // Read data from JSON file for home page
 let jsonData = {}; // Corrected variable name
-const dataPath = 'home.json';
+const dataPath = './data/home.json';
 if (fs.existsSync(dataPath)) {
     try {
         jsonData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -19,7 +19,7 @@ if (fs.existsSync(dataPath)) {
 }
 
 let profileData = {};
-const profiledetailPath = 'profiledetails.json';
+const profiledetailPath = './data/profiledetails.json';
 if (fs.existsSync(profiledetailPath)) {
     try {
         profileData = JSON.parse(fs.readFileSync(profiledetailPath, 'utf8'));
@@ -29,6 +29,19 @@ if (fs.existsSync(profiledetailPath)) {
     }
 } else {
     console.warn(`File ${profiledetailPath} NOT found.`);
+}
+
+let home2Data = {}; // Corrected variable name
+const home2Path = './data/home2.json';
+if (fs.existsSync(dataPath)) {
+    try {
+        home2Data = JSON.parse(fs.readFileSync(home2Path, 'utf8'));
+        console.log(`File ${home2Path} found.`);
+    } catch (error) {
+        console.error('Error reading home2.json:', error);
+    }
+} else {
+    console.warn(`File ${home2Path} NOT found.`);
 }
 
 //GUESTHOME
@@ -83,6 +96,7 @@ router.get('/home', (req, res) => {
 //whats popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
+        posts: home2Data.posts,
         popularPosts: jsonData.popularPosts,
         posts: jsonData.posts,
         popularRooms: jsonData.popularRooms,
@@ -100,7 +114,6 @@ router.get('/customize', (req, res) => {
         username: user.username
     });
 });
-
 
 
 
@@ -177,6 +190,9 @@ router.get('/profile', (req, res) => {
         username : profileData.username,
         profilepicture: profileData.profilepicture,
         bio: profileData.bio,
+        titlepost: profileData.title,
+        description: profileData.description,
+        date : profileData.date,
         layout: 'profilelayout',
         title: 'User Profile'
     });
