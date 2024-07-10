@@ -117,7 +117,8 @@ router.post('/login', async (req, res) => {
                 popularRooms: jsonData.popularRooms,
                 layout: 'homelayout',
                 title: 'Homepage',
-                isLoggedIn: true
+                isLoggedIn: true,
+                username: user.username
             });
         } else {
             res.render('login', {
