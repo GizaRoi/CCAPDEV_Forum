@@ -31,19 +31,6 @@ if (fs.existsSync(profiledetailPath)) {
     console.warn(`File ${profiledetailPath} NOT found.`);
 }
 
-let home2Data = {}; // Corrected variable name
-const home2Path = './data/home2.json';
-if (fs.existsSync(dataPath)) {
-    try {
-        home2Data = JSON.parse(fs.readFileSync(home2Path, 'utf8'));
-        console.log(`File ${home2Path} found.`);
-    } catch (error) {
-        console.error('Error reading home2.json:', error);
-    }
-} else {
-    console.warn(`File ${home2Path} NOT found.`);
-}
-
 //GUESTHOME
 router.get('/', (req, res) => {
     res.render('guesthome', {
@@ -96,7 +83,7 @@ router.get('/home', (req, res) => {
 //whats popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
-        posts: home2Data.posts,
+        posts: jsonData.posts,
         popularPosts: jsonData.popularPosts,
         posts: jsonData.posts,
         popularRooms: jsonData.popularRooms,
