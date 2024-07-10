@@ -83,6 +83,9 @@ router.get('/home', (req, res) => {
 //whats popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
+        popularPosts: jsonData.popularPosts,
+        posts: jsonData.posts,
+        popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Popular',
         isLoggedIn: true
@@ -97,9 +100,6 @@ router.get('/customize', (req, res) => {
         username: user.username
     });
 });
-
-
-
 
 
 

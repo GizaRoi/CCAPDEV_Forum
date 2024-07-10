@@ -1,49 +1,15 @@
 <div class="right-body">
-                    <div class="Title">Discover rooms</div>
-                    <div class="Rooms-list">
-                        <div class="Rooms-img">
-                            <img src="images/frbeauty.jpg">
-                            <div class="room-name">
-                                <strong> fr/beautytalkph</strong> <br />
-                                <h6>340,345 members</h6>
-                            </div>
-                        </div>
-                        <div class="Rooms-img">
-                            <img src="images/frinvest.png">
-                            <div class="room-name">
-                                <strong> fr/investPH</strong> <br />
-                                <h6>874,432 members</h6>
-                            </div>
-                        </div>
-                        <div class="Rooms-img">
-                            <img src="images/frdlsup.jpg">
-                            <div class="room-name">
-                                <strong> fr/dlsuproftopick</strong> <br />
-                                <h6>90,965 members</h6>
-                            </div>
-                        </div>
-                        <div class="Rooms-img">
-                            <img src="images/frnetflix.png">
-                            <div class="room-name">
-                                <strong> fr/netflix</strong> <br />
-                                <h6>339,495 members</h6>
-                            </div>
-                        </div>
-                        <div class="Rooms-img">
-                            <img src="images/frkpop.jpg">
-                            <div class="room-name">
-                                <strong> fr/KPOPpers</strong> <br />
-                                <h6>287,645 members</h6>
-                            </div>
-                        </div>
-                        <div class="Rooms-img">
-                            <img src="images/frsvt.jpg">
-                            <div class="room-name">
-                                <strong> fr/svtcarat</strong> <br />
-                                <h6>1,345,765 members</h6>
-                            </div>
-                        </div>
-                        
-                    </div>
+        <h3>Popular rooms</h3>
+        <div class="Rooms-list">
+            {{#each popularRooms}}
+            <div class="Rooms-img">
+                <img src="{{image}}">
+                <div class="room-name">
+                    <strong>{{name}}</strong> <br />
+                    <h6>{{members}} members</h6>
+                </div>
+            </div>
+            {{/each}}
         </div>
+    </div>
         
