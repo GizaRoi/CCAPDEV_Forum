@@ -18,18 +18,18 @@ if (fs.existsSync(dataPath)) {
     console.warn(`File ${dataPath} NOT found.`);
 }
 
-let profileData = {};
-const profiledetailPath = './data/profiledetails.json';
-if (fs.existsSync(profiledetailPath)) {
-    try {
-        profileData = JSON.parse(fs.readFileSync(profiledetailPath, 'utf8'));
-        console.log(`File ${profiledetailPath} found.`);
-    } catch (error) {
-        console.error('Error reading home.json:', error);
-    }
-} else {
-    console.warn(`File ${profiledetailPath} NOT found.`);
-}
+// let profileData = {};
+// const profiledetailPath = './data/profiledetails.json';
+// if (fs.existsSync(profiledetailPath)) {
+//     try {
+//         profileData = JSON.parse(fs.readFileSync(profiledetailPath, 'utf8'));
+//         console.log(`File ${profiledetailPath} found.`);
+//     } catch (error) {
+//         console.error('Error reading home.json:', error);
+//     }
+// } else {
+//     console.warn(`File ${profiledetailPath} NOT found.`);
+// }
 
 //GUESTHOME
 router.get('/', (req, res) => {
@@ -76,6 +76,7 @@ router.get('/home', (req, res) => {
         layout: 'homelayout',
         title: 'Homepage',
         isLoggedIn: true,
+        username: user.username
         
     });
 });
@@ -89,7 +90,8 @@ router.get('/home2', (req, res) => {
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Popular',
-        isLoggedIn: true
+        isLoggedIn: true,
+        username: user.username
     });
 });
 
@@ -174,22 +176,15 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('profile', {
-        username : profileData.username,
-        profilepicture: profileData.profilepicture,
-        bio: profileData.bio,
-        titlepost: profileData.title,
-        description: profileData.description,
-        date : profileData.date,
         layout: 'profilelayout',
-        title: 'User Profile'
+        title: 'Profile'
     });
 });
 
+// Render edit profile route
 router.get('/editprofile', (req, res) => {
-    res.render('/profile', {
-        profilepicture: profileData.profilepicture,
-        bio: profileData.bio,
-        layout: 'profileLayout',
+    res.render('editprofile', {
+        layout: 'profilelayout',
         title: 'Edit Profile'
     });
 });
