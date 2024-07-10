@@ -1,37 +1,52 @@
 [
     {
-        "username" : "juan01",
+        "username" : "@juan01",
         "followers" : "10.0k followers",
         "profilepicture" : "images/prof-5.png",
-        "bio" : "DLSU💚🏹| Video games👾"
+        "bio" : "DLSU💚🏹| Video games👾",
+        "titlepost": "The DOTA2 situation is so nakakahiya",
+        "description" : "I am actually ashamed to realize that the whole DOTA2 tournament issue was started by a player from DLSU!! Like now my friends are calling me iyakin WHEN IM NOT EVEN THAT GUY HIMSELF. Next time guys wag kayo iiyak kapag may nagemote na kalaban kapag namatay kau thx.",
+        "date" : "June 4, 2024"
     },
 
     {
-        "username" : "roiMark",
+        "username" : "@roiMark",
         "followers" : "8.2k followers",
         "profilepicture" : "images/prof-2.png",
-        "bio" : "Gym grind never stops 💪 | Living that healthy lifestyle 🍏🏋️‍♂️"
+        "bio" : "Gym grind never stops 💪 | Living that healthy lifestyle 🍏🏋️‍♂️",
+        "titlepost": "De La Salle Wins Regional Sports Championship!!", 
+        "description" : "Congrats to our sports teams for winning the regional championship! Go, LaSalle!", 
+        "date" : "June 6, 2024"
     },
 
     {
-        "username" : "gabLlenarez12",
+        "username" : "@gabLlenarez12",
         "followers" : "4.5k followers",
         "profilepicture" : "images/prof-1.png",
-        "bio" : "Living my best life ✨ | Social media addict 📸📱 | Here for the vibes 🥳"
+        "bio" : "Living my best life ✨ | Social media addict 📸📱 | Here for the vibes 🥳",
+        "titlepost": "Adopt Dont Shop!",
+        "description" : "I am so fed up over people abandoning pets, especially cats, everywhere then going around to buy imported cats.",
+        "date" : "June 6, 2024"
     },
 
     {
-        "username" : "azaVelasquez",
+        "username" : "@azaVelasquez",
         "followers" : "12.3k followers",
         "profilepicture" : "images/prof-4.png",
-        "bio" : "Fur baby parent 🐾 | Animal rescue advocate 🌟 | Pets are family 🐕🐈"
+        "bio" : "Fur baby parent 🐾 | Animal rescue advocate 🌟 | Pets are family 🐕🐈",
+        "titlepost": "New Python 3.10 Features Released",
+        "description" : "Python 3.10 is out with new pattern matching features and improved error messages. Have you upgraded yet?",
+        "date" : "June 6, 2024"
     },
 
     {
-        "username" : "vince34",
+        "username" : "@vince34",
         "followers" : "2.3k followers",
         "profilepicture" : "images/prof-3.png",
-        "bio" : "Living in a digital world 🌐📱 | Coding my dreams into reality 💻✨"
+        "bio" : "Living in a digital world 🌐📱 | Coding my dreams into reality 💻✨",
+        "titlepost": "Historic Peace Treaty Signed in Middle East",
+        "description" : "A significant peace treaty has been signed in the Middle East, marking a hopeful turn in international relations.",
+        "date" : "June 6, 2024"
     }
 ]
     
