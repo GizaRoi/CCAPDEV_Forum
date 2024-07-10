@@ -62,35 +62,6 @@ router.get('/customize', (req, res) => {
     });
 });
 
-
-
-
-// // Handle registration
-// router.post('/register', async (req, res) => {
-//     const { username, password } = req.body;
-//     const hashedPassword = await bcrypt.hash(password, 4);
-
-//     try {
-//         const newUser = new User({
-//             username,
-//             password: hashedPassword
-//         });
-//         await newUser.save();
-//         res.render('login', {
-//             layout: 'loginlayout',
-//             title: 'Login',
-//             message: 'Registration successful! Please log in.'
-//         });
-//     } catch (error) {
-//         console.error('Error registering user:', error);
-//         res.render('register', {
-//             layout: 'loginlayout',
-//             title: 'Register',
-//             error: 'Registration failed. Username might be already taken.'
-//         });
-//     }
-// });
-
 // Handle registration
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
@@ -148,7 +119,6 @@ router.post('/customize', async (req, res) => {
 });
 
 // Handle login
-// Handle login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -178,10 +148,16 @@ router.post('/login', async (req, res) => {
         }
     } catch (error) {
         console.error('Error during login:', error);
-        res.render('login', {
-            layout: 'loginlayout',
-            title: 'Login',
-            error: 'An error occurred. Please try again.'
+        // res.render('login', {
+        //     layout: 'loginlayout',
+        //     title: 'Login',
+        //     error: 'An error occurred. Please try again.'
+        // });
+
+        res.render('home', { 
+            layout: 'homelayout',
+            title: 'FoRoom',
+            username: user.username
         });
     }
 });

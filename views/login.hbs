@@ -16,13 +16,13 @@
 
             <div class="input-box">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="input-field" required>
+                <input type="username" id="username" name="username" class="input-field" placeholder="username"required>
             </div>
 
             <div class="input-box">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="input-field" required>
-                <i id="togglePassword" class="password-icon"><ion-icon name="eye-off-outline"></ion-icon></i>
+                <input type="password" id="password" name="password" class="input-field" placeholder="password"  required>
+                
             </div>
 
                     {{#if error}}
@@ -36,7 +36,7 @@
             </div>
 
             <div class="submit-box">
-                <button type="submit" class="button" id="signIn" href="/home">Sign In</button>
+                <button type="submit" class="button" id="signIn">Sign In</button>
             </div>
 
         </form>
