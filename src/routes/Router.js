@@ -80,10 +80,11 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (user && await bcrypt.compare(password, user.password)) {
-            res.render('home2', {
+            res.render('home', {
                 layout: 'homelayout',
                 title: 'FoRoom',
-                username: user.username
+                username: user.username,
+                isLoggedIn: true
             });
         } else {
             res.render('login', {
