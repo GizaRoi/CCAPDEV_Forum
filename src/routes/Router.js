@@ -121,8 +121,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
-
 router.get('/profile', (req, res) => {
     res.render('profile', {
         layout: 'profilelayout',
@@ -149,14 +147,11 @@ router.get('/editprofile', (req, res) => {
     });
 });
 
-=======
-// Handle profile update
->>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
+
 router.post('/editprofile', async (req, res) => {
     const { username, profilepicture, bio } = req.body;
 
     try {
-<<<<<<< HEAD
         console.log('Updating profile for user:', username);
         console.log('Profile picture:', profilepicture);
         console.log('Bio:', bio);
@@ -164,14 +159,6 @@ router.post('/editprofile', async (req, res) => {
         await User.findOneAndUpdate({ username }, { profilepicture, bio });
         // Redirect to profile page after customization
         res.redirect(`/profile?username=${username}`);
-=======
-        await User.findOneAndUpdate({ username }, { profilepicture, bio });
-        res.render('profile', {
-            layout: 'profilelayout',
-            title: 'Profile',
-            message: 'Updated Profile.'
-        });
->>>>>>> 062a94d949e122ad996b4e1797acd463efb18cff
     } catch (error) {
         console.error('Error updating profile:', error);
         res.render('editprofile', {
