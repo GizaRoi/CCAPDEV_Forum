@@ -5,7 +5,7 @@ const router = express.Router();
 const fs = require('fs');
 
 // Read data from JSON file for home page
-let jsonData = {}; // Corrected variable name
+let jsonData = {};
 const dataPath = './data/home.json';
 if (fs.existsSync(dataPath)) {
     try {
@@ -18,14 +18,14 @@ if (fs.existsSync(dataPath)) {
     console.warn(`File ${dataPath} NOT found.`);
 }
 
-// Middleware to check session
-const checkAuth = (req, res, next) => {
+// Middleware to check if user is logged in
+function isAuthenticated(req, res, next) {
     if (req.session.user) {
-        next();
+        return next();
     } else {
         res.redirect('/login');
     }
-};
+}
 
 // GUESTHOME
 router.get('/', (req, res) => {
@@ -63,28 +63,22 @@ router.get('/post', (req, res) => {
     });
 });
 
-router.get('/home', (req, res) => {
-    if (req.session.user) {
-        console.log('Session user:', req.session.user); // Debugging line
-        res.render('home', {
-            popularPosts: jsonData.popularPosts,
-            posts: jsonData.posts,
-            popularRooms: jsonData.popularRooms,
-            layout: 'homelayout',
-            title: 'Homepage',
-            isLoggedIn: true,
-            username: req.session.user.username // Ensure this is correct
-        });
-    } else {
-        console.log('No user in session');
-        res.redirect('/login');
-    }
+// Logged in home
+router.get('/home', isAuthenticated, (req, res) => {
+    res.render('home', {
+        popularPosts: jsonData.popularPosts,
+        posts: jsonData.posts,
+        popularRooms: jsonData.popularRooms,
+        layout: 'homelayout',
+        title: 'Homepage',
+        isLoggedIn: true,
+        username: req.session.user.username,
+        profilePicture: req.session.user.profilePicture
+    });
 });
 
-
-
 // What's popular
-router.get('/home2', (req, res) => {
+router.get('/home2', isAuthenticated, (req, res) => {
     res.render('home2', {
         posts: jsonData.posts,
         popularPosts: jsonData.popularPosts,
@@ -95,16 +89,12 @@ router.get('/home2', (req, res) => {
     });
 });
 
-router.get('/customize', (req, res) => {
-    if (req.user) {
-        res.render('customize', {
-            layout: 'customizelayout',
-            title: 'Customize',
-            username: req.session.user.username
-        });
-    } else {
-        res.status(401).redirect('/login'); // Unauthorized
-    }
+router.get('/customize', isAuthenticated, (req, res) => {
+    res.render('customize', {
+        layout: 'customizelayout',
+        title: 'Customize',
+        username: req.session.user.username
+    });
 });
 
 // Handle registration
@@ -118,7 +108,8 @@ router.post('/register', async (req, res) => {
             password: hashedPassword
         });
         await newUser.save();
-        res.redirect(`/customize?username=${username}`);
+        req.session.user = newUser; // Log the user in
+        res.redirect('/customize');
     } catch (error) {
         console.error('Error registering user:', error);
         res.status(500).render('register', {
@@ -130,6 +121,28 @@ router.post('/register', async (req, res) => {
     }
 });
 
+// Handle customization
+router.post('/customize', isAuthenticated, async (req, res) => {
+    const { profilepicture, bio } = req.body;
+    try {
+        const user = await User.findById(req.session.user._id);
+        user.profilePicture = profilepicture;
+        user.bio = bio;
+        await user.save();
+        req.session.user = user; // Update session with new user data
+        res.redirect('/profile');
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.status(500).render('customize', {
+            layout: 'customizelayout',
+            title: 'Customize',
+            username: req.session.user.username,
+            error: 'Profile update failed. Please try again.',
+            errorCode: 'PROFILE_UPDATE_ERROR'
+        });
+    }
+});
+
 // Handle login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
@@ -137,7 +150,6 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            console.log('User not found');
             res.status(404).render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
@@ -146,10 +158,8 @@ router.post('/login', async (req, res) => {
             });
         } else if (user && await bcrypt.compare(password, user.password)) {
             req.session.user = user; // Store user in session
-            console.log('User logged in:', req.session.user); // Debugging line
             res.redirect('/home');
         } else {
-            console.log('Invalid credentials');
             res.status(401).render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
@@ -168,49 +178,59 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
-router.get('/profile', (req, res) => {
+router.get('/profile', isAuthenticated, async (req, res) => {
+    const user = await User.findById(req.session.user._id);
     res.render('profile', {
         layout: 'profilelayout',
         title: 'Profile',
-        username: req.session.user.username
+        username: user.username,
+        profilePicture: user.profilePicture,
+        bio: user.bio
     });
 });
 
 // Render edit profile route
-router.get('/editprofile', (req, res) => {
+router.get('/editprofile', isAuthenticated, async (req, res) => {
+    const user = await User.findById(req.session.user._id);
     res.render('editprofile', {
         layout: 'profilelayout',
-        title: 'Edit Profile'
+        title: 'Edit Profile',
+        username: user.username,
+        profilePicture: user.profilePicture,
+        bio: user.bio
     });
 });
 
-router.get('/post', (req, res) => {
-    res.render('post', {
-        layout: 'postlayout',
-        title: 'Post | FoRoom',
-        isPost: true
-    });
+router.post('/editprofile', isAuthenticated, async (req, res) => {
+    const { profilepicture, bio } = req.body;
+    try {
+        const user = await User.findById(req.session.user._id);
+        user.profilePicture = profilepicture;
+        user.bio = bio;
+        await user.save();
+        req.session.user = user; // Update session with new user data
+        res.redirect('/profile');
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.status(500).render('editprofile', {
+            layout: 'profilelayout',
+            title: 'Edit Profile',
+            username: req.session.user.username,
+            profilePicture: req.session.user.profilePicture,
+            bio: req.session.user.bio,
+            error: 'Profile update failed. Please try again.',
+            errorCode: 'PROFILE_UPDATE_ERROR'
+        });
+    }
 });
 
-router.get('/createpost', (req, res) => {
-    res.render('createpost', {
-        layout: 'createpostlayout',
-        title: 'Create Post',
-    });
-});
-
-router.get('/editcomment', (req, res) => {
-    res.render('editcomment', {
-        layout: 'editcommentlayout',
-        title: 'Edit Comment',
-    });
-});
-
-router.get('/editpost', (req, res) => {
-    res.render('editpost', {
-        layout: 'editpostlayout',
-        title: 'Edit Post',
+// Handle logout
+router.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).send('Error logging out.');
+        }
+        res.redirect('/login');
     });
 });
 

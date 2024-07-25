@@ -13,11 +13,12 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    profilepicture: {
-        type: String,
+    profilePicture: {
+        type: String
     },
     bio: {
-        type: String
+        type: String,
+        default: ''
     },
     posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
