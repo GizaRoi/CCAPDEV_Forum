@@ -1,27 +1,42 @@
 [
     {
         "username" : "juan01",
-        "password" : "asdf"
+        "password" : "asdf",
+        "profilepicture": "images/prof-5.png",
+        "bio": "DLSU💚🏹| Video games👾",
+        "posts": []
     },
 
     {
         "username" : "roiMark",
-        "password" : "asdf"
+        "password" : "asdf",
+        "profilepicture": "images/prof-2.png",
+        "bio": "Gym grind never stops 💪 | Living that healthy lifestyle 🍏🏋️‍♂️",
+        "posts": []
     },
 
     {
         "username" : "gabLlenarez12",
-        "password" : "asdf"
+        "password" : "asdf",
+        "profilepicture": "images/prof-1.png",
+        "bio": "Living my best life ✨ | Social media addict 📸📱 | Here for the vibes 🥳",
+        "posts": []
     },
 
     {
         "username" : "azaVelasquez",
-        "password" : "asdf"
+        "password" : "asdf",
+        "profilepicture": "images/prof-4.png",
+        "bio": "Fur baby parent 🐾 | Animal rescue advocate 🌟 | Pets are family 🐕🐈",
+        "posts": []
     },
 
     {
         "username" : "vince34",
-        "password" : "asdf"
+        "password" : "asdf",
+        "profilepicture": "images/prof-3.png",
+        "bio": "Living in a digital world 🌐📱 | Coding my dreams into reality 💻✨",
+        "posts": []
     }
     
 ]

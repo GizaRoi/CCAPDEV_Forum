@@ -98,7 +98,7 @@ router.get('/customize', (req, res) => {
     res.render('customize', {
         layout: 'customizelayout',
         title: 'Customize',
-        username: user.username
+        username: User.username
     });
 });
 

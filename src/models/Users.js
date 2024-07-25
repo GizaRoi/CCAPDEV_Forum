@@ -15,16 +15,9 @@ const UserSchema = new Schema({
     },
     profilepicture: {
         type: String,
-        // required: true
     },
     bio: {
         type: String
-    },
-
-    userAgreement: {
-        type: Boolean,
-        required: true,
-        default: false
     },
     posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });

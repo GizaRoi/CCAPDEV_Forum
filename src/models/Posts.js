@@ -6,7 +6,7 @@ const User = require('./Users.js');
 const ChildReplySchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'users',
         required: true
     },
     reply: {
@@ -24,7 +24,7 @@ const ChildReplySchema = new Schema({
 const ReplySchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'users',
         required: true
     },
     reply: {
@@ -35,7 +35,7 @@ const ReplySchema = new Schema({
         type: Date,
         default: Date.now
     },
-    replies: [ChildReplySchema],
+    replies: [{type: Schema.Types.ObjectId, ref: 'child_replies'}],
     up: {type: Number},
     down: {type: Number}
 });
@@ -43,7 +43,7 @@ const ReplySchema = new Schema({
 const PostSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'users',
         required: true
     },
     title: {
@@ -56,7 +56,7 @@ const PostSchema = new Schema({
     },
     room: {
         type: Schema.Types.ObjectId,
-        ref: 'Room',
+        ref: 'rooms',
         required: true,
     },
     post: {
@@ -69,7 +69,7 @@ const PostSchema = new Schema({
     down: {
         type: Number
     },
-    replies: [ReplySchema]
+    replies: [{type: Schema.Types.ObjectId, ref:'replies'}]
 });
 
 const Post = model('posts', PostSchema);
