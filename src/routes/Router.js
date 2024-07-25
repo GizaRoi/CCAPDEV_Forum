@@ -18,20 +18,16 @@ if (fs.existsSync(dataPath)) {
     console.warn(`File ${dataPath} NOT found.`);
 }
 
-// let profileData = {};
-// const profiledetailPath = './data/profiledetails.json';
-// if (fs.existsSync(profiledetailPath)) {
-//     try {
-//         profileData = JSON.parse(fs.readFileSync(profiledetailPath, 'utf8'));
-//         console.log(`File ${profiledetailPath} found.`);
-//     } catch (error) {
-//         console.error('Error reading home.json:', error);
-//     }
-// } else {
-//     console.warn(`File ${profiledetailPath} NOT found.`);
-// }
+// Middleware to check session
+const checkAuth = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+};
 
-//GUESTHOME
+// GUESTHOME
 router.get('/', (req, res) => {
     res.render('guesthome', {
         popularPosts: jsonData.popularPosts,
@@ -67,43 +63,49 @@ router.get('/post', (req, res) => {
     });
 });
 
-//logged in home
 router.get('/home', (req, res) => {
-    res.render('home', {
-        popularPosts: jsonData.popularPosts,
-        posts: jsonData.posts,
-        popularRooms: jsonData.popularRooms,
-        layout: 'homelayout',
-        title: 'Homepage',
-        isLoggedIn: true
-        
-    });
+    if (req.session.user) {
+        console.log('Session user:', req.session.user); // Debugging line
+        res.render('home', {
+            popularPosts: jsonData.popularPosts,
+            posts: jsonData.posts,
+            popularRooms: jsonData.popularRooms,
+            layout: 'homelayout',
+            title: 'Homepage',
+            isLoggedIn: true,
+            username: req.session.user.username // Ensure this is correct
+        });
+    } else {
+        console.log('No user in session');
+        res.redirect('/login');
+    }
 });
 
-//whats popular
+
+
+// What's popular
 router.get('/home2', (req, res) => {
     res.render('home2', {
         posts: jsonData.posts,
         popularPosts: jsonData.popularPosts,
-        posts: jsonData.posts,
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Popular',
         isLoggedIn: true
-        
     });
 });
-
 
 router.get('/customize', (req, res) => {
-    res.render('customize', {
-        layout: 'customizelayout',
-        title: 'Customize',
-        username: user.username
-    });
+    if (req.user) {
+        res.render('customize', {
+            layout: 'customizelayout',
+            title: 'Customize',
+            username: req.session.user.username
+        });
+    } else {
+        res.status(401).redirect('/login'); // Unauthorized
+    }
 });
-
-
 
 // Handle registration
 router.post('/register', async (req, res) => {
@@ -119,10 +121,11 @@ router.post('/register', async (req, res) => {
         res.redirect(`/customize?username=${username}`);
     } catch (error) {
         console.error('Error registering user:', error);
-        res.render('register', {
+        res.status(500).render('register', {
             layout: 'loginlayout',
             title: 'Register',
-            error: 'Registration failed. Username might be already taken.'
+            error: 'Registration failed. Username might be already taken.',
+            errorCode: 'REGISTRATION_ERROR'
         });
     }
 });
@@ -134,40 +137,33 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            res.render('login', {
+            console.log('User not found');
+            res.status(404).render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
-                error: 'Username does not exist.'
+                error: 'Username does not exist.',
+                errorCode: 'USER_NOT_FOUND'
             });
         } else if (user && await bcrypt.compare(password, user.password)) {
-            // res.render('/home', {
-            //     layout: 'homelayout',
-            //     title: 'FoRoom',
-            //     username: user.username
-            // });
-
-            res.render('home', {
-                popularPosts: jsonData.popularPosts,
-                posts: jsonData.posts,
-                popularRooms: jsonData.popularRooms,
-                layout: 'homelayout',
-                title: 'Homepage',
-                isLoggedIn: true,
-                username: user.username
-            });
+            req.session.user = user; // Store user in session
+            console.log('User logged in:', req.session.user); // Debugging line
+            res.redirect('/home');
         } else {
-            res.render('login', {
+            console.log('Invalid credentials');
+            res.status(401).render('login', {
                 layout: 'loginlayout',
                 title: 'Login',
-                error: 'Invalid Username or Password'
+                error: 'Invalid Username or Password',
+                errorCode: 'INVALID_CREDENTIALS'
             });
         }
     } catch (error) {
         console.error('Error during login:', error);
-        res.render('login', {
+        res.status(500).render('login', {
             layout: 'loginlayout',
             title: 'Login',
-            error: 'An error occurred. Please try again.'
+            error: 'An error occurred. Please try again.',
+            errorCode: 'LOGIN_ERROR'
         });
     }
 });
@@ -176,7 +172,8 @@ router.post('/login', async (req, res) => {
 router.get('/profile', (req, res) => {
     res.render('profile', {
         layout: 'profilelayout',
-        title: 'Profile'
+        title: 'Profile',
+        username: req.session.user.username
     });
 });
 
@@ -187,7 +184,6 @@ router.get('/editprofile', (req, res) => {
         title: 'Edit Profile'
     });
 });
-
 
 router.get('/post', (req, res) => {
     res.render('post', {
@@ -211,7 +207,7 @@ router.get('/editcomment', (req, res) => {
     });
 });
 
-router.get('/editpost', (req, res)=> {
+router.get('/editpost', (req, res) => {
     res.render('editpost', {
         layout: 'editpostlayout',
         title: 'Edit Post',
