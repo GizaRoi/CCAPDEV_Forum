@@ -53,6 +53,19 @@ router.get('/register', (req, res) => {
     });
 });
 
+router.get('/createpost', (req, res) => {
+    res.render('createpost', {
+        layout: 'createpostlayout',
+        title: 'Create',
+        username: req.session.user.username,
+        profilePicture: req.session.user.profilePicture,
+        isLoggedIn: true,
+        popularPosts: jsonData.popularPosts,
+        posts: jsonData.posts,
+        popularRooms: jsonData.popularRooms
+    });
+});
+
 router.get('/post', (req, res) => {
     res.render('post', {
         rooms: jsonData.rooms,
@@ -62,6 +75,7 @@ router.get('/post', (req, res) => {
         title: 'Post'
     });
 });
+
 
 // Logged in home
 router.get('/home', isAuthenticated, (req, res) => {
