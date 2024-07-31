@@ -1,0 +1,28 @@
+
+<h1>Search Results</h1>
+
+<h2>Users</h2>
+{{#if users.length}}
+    <ul>
+        {{#each users}}
+            <li>{{this.username}}</li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No users found.</p>
+{{/if}}
+
+<h2>Posts</h2>
+{{#if posts.length}}
+    <ul>
+        {{#each posts}}
+            <li>
+                <h3>{{this.title}}</h3>
+                <p>{{this.content}}</p>
+                <p>Author: {{this.author.username}}</p>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No posts found.</p>
+{{/if}}

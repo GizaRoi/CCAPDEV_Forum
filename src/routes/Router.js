@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const User = require('../models/Users');
+const Post = require('../models/Posts');
 const router = express.Router();
 const fs = require('fs');
 
@@ -37,6 +38,14 @@ router.get('/', (req, res) => {
         title: 'FoRoom',
         isLoggedIn: false
     });
+});
+
+// Handle search requests
+router.get('/search', async (req, res) => {
+    const query = req.query.query;
+    const userResults = await User.find({ username: new RegExp(query, 'i') });
+    const postResults = await Post.find({ title: new RegExp(query, 'i') }).populate('author');
+    res.render('search-results', { users: userResults, posts: postResults });
 });
 
 router.get('/login', (req, res) => {
