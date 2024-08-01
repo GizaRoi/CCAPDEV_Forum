@@ -13,11 +13,10 @@
                             <div class="user-card">
                                 <div class="user-info">
                                     <div class="user-pfp">
-                                        <img src="{{profilePicture}}" alt="{{username}}'s Profile Picture"/>
+                                        <img src="./images/{{profilePicture}}" alt="{{username}}'s Profile Picture"/>
                                     </div>
-                                    <div class="user-details">
-                                        <a href="/profile/{{_id}}" class="user-username">{{username}}</a>
-                                        <p>{{bio}}</p>
+                                    <div class="user-details" >
+                                        <a href="/profile/{{_id}}" class="user-username">@{{username}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,11 +37,11 @@
                                 <div class="lineh"></div>
                                 <div class="post-header">
                                     <div class="op-pfp">
-                                        <img id="pfp5" src="{{author.profilePicture}}" alt="{{author.username}}'s Profile Picture"/>
+                                        <img id="pfp5" src="{{profilePicture}}" alt="{{username}}'s Profile Picture"/>
                                     </div>
                                     <div class="post-info">
                                         <div class="op-username">
-                                            by <a href="/profile/{{author._id}}">{{author.username}}</a> • {{date}}
+                                            by <a href="/profile/{{author._id}}">{{username}}</a> • {{date}}
                                         </div>
                                         <div class="room">
                                             <img id="fr1" src="{{roomImage}}" alt="Room Image"/>

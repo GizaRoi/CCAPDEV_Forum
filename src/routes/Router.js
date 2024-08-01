@@ -97,8 +97,8 @@ router.get('/search', async (req, res) => {
             profilePicture: req.session.user ? req.session.user.profilePicture : null,
 
             // Assuming jsonData is available
-            popularPosts: jsonData ? jsonData.popularPosts : [],
-            posts: jsonData ? jsonData.posts : [],
+            //popularPosts: jsonData ? jsonData.popularPosts : [],
+            //posts: jsonData ? jsonData.posts : [],
             popularRooms: jsonData ? jsonData.popularRooms : []
         });
     } catch (error) {
@@ -279,6 +279,41 @@ router.get('/profile', isAuthenticated, async (req, res) => {
         bio: user.bio
     });
 });
+
+router.get('/profile/:id', async (req, res) => {
+    const userId = req.params.id;
+  
+    try {
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).render('error', {
+          title: 'User Not Found',
+          message: 'The user you are looking for does not exist.'
+        });
+      }
+  
+      res.render('profile2', {
+        layout: 'profilelayout',
+        user: {
+          _id: user._id.toString(),
+          username: user.username,
+          profilePicture: user.profilePicture,
+          bio: user.bio
+        },
+        title: `${user.username}'s Profile`
+      });
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      res.status(500).render('error', {
+        title: 'Error',
+        message: 'An error occurred while fetching the user profile. Please try again.'
+      });
+    }
+  });
+  
+
+
 
 // Render edit profile route
 router.get('/editprofile', isAuthenticated, async (req, res) => {
