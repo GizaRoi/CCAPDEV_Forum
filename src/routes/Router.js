@@ -6,6 +6,9 @@ const { Post, Reply, ChildReply } = require("../models/Posts");
 const router = express.Router();
 const fs = require("fs");
 
+const multer = require('multer');
+const path = require('path');
+
 // Read data from JSON file for home page
 let jsonData = {};
 const dataPath = './data/home.json';
@@ -28,6 +31,18 @@ function isAuthenticated(req, res, next) {
         res.redirect('/login');
     }
 }
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images/');
+    }, 
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+
+});
+
+const upload = multer({storage: storage});
 
 // GUESTHOME
 router.get('/', (req, res) => {
@@ -208,7 +223,7 @@ router.get('/profile', isAuthenticated, async (req, res) => {
         layout: 'profilelayout',
         title: 'Profile',
         username: user.username,
-        profilePicture: user.profilePicture,
+        profilePicture: req.session.user.profilePicture,
         bio: user.bio
     });
 });
@@ -220,16 +235,44 @@ router.get('/editprofile', isAuthenticated, async (req, res) => {
         layout: 'profilelayout',
         title: 'Edit Profile',
         username: user.username,
-        profilePicture: user.profilePicture,
+        profilePicture: req.session.user.profilePicture,
         bio: user.bio
     });
 });
 
-router.post('/editprofile', isAuthenticated, async (req, res) => {
-    const { profilepicture, bio } = req.body;
+/*router.post('/editprofile', isAuthenticated, upload.single('profilepicture'), async (req, res) => {
+    //const { profilepicture, bio } = req.body;
+    const { bio } = req.body;
+    const profilePicture = req.file ? req.file.filename : req.session.user.profilePicture;
     try {
         const user = await User.findById(req.session.user._id);
-        user.profilePicture = profilepicture;
+        user.profilePicture = profilePicture;
+        user.bio = bio;
+        await user.save();
+        req.session.user = user; // Update session with new user data
+        res.redirect('/profile');
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.status(500).render('editprofile', {
+            layout: 'profilelayout',
+            title: 'Edit Profile',
+            username: req.session.user.username,
+            profilePicture: req.session.user.profilePicture,
+            bio: req.session.user.bio,
+            error: 'Profile update failed. Please try again.',
+            errorCode: 'PROFILE_UPDATE_ERROR'
+        });
+    }
+});*/
+
+router.post('/editprofile', isAuthenticated, upload.single('profilepicture'), async (req, res) => {
+    const { bio, profilepicture } = req.body;
+    const profilePicture = req.file ? req.file.filename : req.session.user.profilePicture;
+    const profilePictureURL = profilePicture ? `http://localhost:3000/images/${profilePicture}` : '';
+
+    try {
+        const user = await User.findById(req.session.user._id);
+        user.profilePicture = profilePictureURL;
         user.bio = bio;
         await user.save();
         req.session.user = user; // Update session with new user data
