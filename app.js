@@ -1,4 +1,6 @@
 const express = require('express');
+const handlebars = require('express-handlebars');
+
 const server = express();
 require('dotenv').config();
 
@@ -8,14 +10,19 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const router = require('./src/routes/Router.js');
-const handlebars = require('express-handlebars');
+const path = require('path'); // Import path for directory handling
 const connectToMongo = require('./src/conn.js');
+
+
+
 
 // Set up Handlebars
 server.set('view engine', 'hbs');
 server.engine('hbs', handlebars.engine({
     extname: 'hbs'
 }));
+server.set('view engine', 'hbs');
+server.set('views', path.join(__dirname, 'views'));
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));

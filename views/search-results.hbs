@@ -1,28 +1,74 @@
+{{> header}}
 
-<h1>Search Results</h1>
+<div class="body">
+    {{> sidebar_left}}
+    <div class="container">
+        <div class="top-body">
+            <!-- User Results -->
+            <div class="search-results">
+                <h2>Users</h2>
+                {{#if users.length}}
+                    <div class="user-results">
+                        {{#each users}}
+                            <div class="user-card">
+                                <div class="user-info">
+                                    <div class="user-pfp">
+                                        <img src="{{profilePicture}}" alt="{{username}}'s Profile Picture"/>
+                                    </div>
+                                    <div class="user-details">
+                                        <a href="/profile/{{_id}}" class="user-username">{{username}}</a>
+                                        <p>{{bio}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <p>No users found.</p>
+                {{/if}}
+            </div>
 
-<h2>Users</h2>
-{{#if users.length}}
-    <ul>
-        {{#each users}}
-            <li>{{this.username}}</li>
-        {{/each}}
-    </ul>
-{{else}}
-    <p>No users found.</p>
-{{/if}}
+            <!-- Post Results -->
+            <div class="search-results">
+                <h2>Posts</h2>
+                {{#if posts.length}}
+                    <div class="post-results">
+                        {{#each posts}}
+                            <button type="button" class="btn post-container">
+                                <div class="lineh"></div>
+                                <div class="post-header">
+                                    <div class="op-pfp">
+                                        <img id="pfp5" src="{{author.profilePicture}}" alt="{{author.username}}'s Profile Picture"/>
+                                    </div>
+                                    <div class="post-info">
+                                        <div class="op-username">
+                                            by <a href="/profile/{{author._id}}">{{author.username}}</a> • {{date}}
+                                        </div>
+                                        <div class="room">
+                                            <img id="fr1" src="{{roomImage}}" alt="Room Image"/>
+                                            <span class="roomname">{{room}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <a href="/post/{{_id}}" style="text-decoration: none;">
+                                        <div class="post-title">{{title}}</div>
+                                        <div class="post-description">{{description}}</div>
+                                    </a>
+                                </div>
+                                <!-- Footer removed -->
+                            </button>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <p>No posts found.</p>
+                {{/if}}
+            </div>
+        </div>  
+    </div>
+    {{> sidebar_right}}
+</div>
 
-<h2>Posts</h2>
-{{#if posts.length}}
-    <ul>
-        {{#each posts}}
-            <li>
-                <h3>{{this.title}}</h3>
-                <p>{{this.content}}</p>
-                <p>Author: {{this.author.username}}</p>
-            </li>
-        {{/each}}
-    </ul>
-{{else}}
-    <p>No posts found.</p>
-{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

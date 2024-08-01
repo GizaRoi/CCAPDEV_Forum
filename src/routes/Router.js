@@ -59,10 +59,60 @@ router.get('/', (req, res) => {
 // Handle search requests
 router.get('/search', async (req, res) => {
     const query = req.query.query;
-    const userResults = await User.find({ username: new RegExp(query, 'i') });
-    const postResults = await Post.find({ title: new RegExp(query, 'i') }).populate('author');
-    res.render('search-results', { users: userResults, posts: postResults });
+    try {
+        const userResults = await User.find({ username: new RegExp(query, 'i') }).exec();
+        const postResults = await Post.find({ title: new RegExp(query, 'i') }).populate('author').exec();
+        
+        const mappedUsers = userResults.map(user => ({
+            _id: user._id.toString(),
+            username: user.username,
+            profilePicture: user.profilePicture,
+            bio: user.bio
+        }));
+        
+        const mappedPosts = postResults.map(post => ({
+            _id: post._id.toString(),
+            title: post.title,
+            description: post.description,
+            createdAt: post.createdAt,
+            room: post.room,
+            roomImage: post.roomImage,
+            upvote: post.upvote,
+            downvote: post.downvote,
+            replynum: post.replynum,
+            author: {
+                _id: post.author._id.toString(),
+                username: post.author.username,
+                profilePicture: post.author.profilePicture
+            }
+        }));
+        
+        res.render('search-results', {
+            layout: 'searchlayout',
+            users: mappedUsers,
+            posts: mappedPosts,
+            title: 'Search Results',
+            isLoggedIn: req.session.user ? true : false,
+            username: req.session.user ? req.session.user.username : null,
+            profilePicture: req.session.user ? req.session.user.profilePicture : null,
+
+            // Assuming jsonData is available
+            popularPosts: jsonData ? jsonData.popularPosts : [],
+            posts: jsonData ? jsonData.posts : [],
+            popularRooms: jsonData ? jsonData.popularRooms : []
+        });
+    } catch (error) {
+        console.error('Error during search:', error);
+        res.status(500).render('error', {
+            layout: 'searchlayout',
+            title: 'Error',
+            message: 'An error occurred while searching. Please try again.'
+        });
+    }
 });
+
+
+
 
 router.get('/login', (req, res) => {
     res.render('login', {
