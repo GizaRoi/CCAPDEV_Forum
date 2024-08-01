@@ -8,7 +8,7 @@
             <main>
                 <section class="profile">
                     <div class="profile-header">
-                        <img src="{{profilePicture}}" class="profile-pic" alt="Profile Picture">
+                        <img src="/images/{{profilePicture}}" class="profile-pic" alt="Profile Picture">
                         <div class="profile-info">
                             <h2>@{{username}}</h2>
                             <span class="followers">0 followers</span>
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div id="edit-profile-modal" class="modal" href="/editprofile">
+   <div id="edit-profile-modal" class="modal" href="/editprofile">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <form action="/editprofile" method="POST" enctype="multipart/form-data">

@@ -124,7 +124,9 @@ router.get('/home2', isAuthenticated, (req, res) => {
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Popular',
-        isLoggedIn: true
+        isLoggedIn: true,
+        username: req.session.user.username,
+        profilePicture: req.session.user.profilePicture
     });
 });
 
@@ -240,40 +242,17 @@ router.get('/editprofile', isAuthenticated, async (req, res) => {
     });
 });
 
-/*router.post('/editprofile', isAuthenticated, upload.single('profilepicture'), async (req, res) => {
-    //const { profilepicture, bio } = req.body;
+//Handles edit profile
+router.post('/editprofile', isAuthenticated, upload.single('profilepicture'), async (req, res) => {
     const { bio } = req.body;
     const profilePicture = req.file ? req.file.filename : req.session.user.profilePicture;
+
     try {
         const user = await User.findById(req.session.user._id);
         user.profilePicture = profilePicture;
-        user.bio = bio;
-        await user.save();
-        req.session.user = user; // Update session with new user data
-        res.redirect('/profile');
-    } catch (error) {
-        console.error('Error updating profile:', error);
-        res.status(500).render('editprofile', {
-            layout: 'profilelayout',
-            title: 'Edit Profile',
-            username: req.session.user.username,
-            profilePicture: req.session.user.profilePicture,
-            bio: req.session.user.bio,
-            error: 'Profile update failed. Please try again.',
-            errorCode: 'PROFILE_UPDATE_ERROR'
-        });
-    }
-});*/
-
-router.post('/editprofile', isAuthenticated, upload.single('profilepicture'), async (req, res) => {
-    const { bio, profilepicture } = req.body;
-    const profilePicture = req.file ? req.file.filename : req.session.user.profilePicture;
-    const profilePictureURL = profilePicture ? `http://localhost:3000/images/${profilePicture}` : '';
-
-    try {
-        const user = await User.findById(req.session.user._id);
-        user.profilePicture = profilePictureURL;
-        user.bio = bio;
+        if (bio !== undefined && bio.trim() !== '') { //bio remains even if there are no changes made
+            user.bio = bio;
+        }
         await user.save();
         req.session.user = user; // Update session with new user data
         res.redirect('/profile');
