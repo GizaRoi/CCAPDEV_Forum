@@ -1,9 +1,10 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const User = require('../models/Users');
-const Post = require('../models/Posts');
+const express = require("express");
+const bcrypt = require("bcrypt");
+const User = require("../models/Users");
+const Room = require("../models/Rooms");
+const { Post, Reply, ChildReply } = require("../models/Posts");
 const router = express.Router();
-const fs = require('fs');
+const fs = require("fs");
 
 // Read data from JSON file for home page
 let jsonData = {};
@@ -256,5 +257,72 @@ router.get('/logout', (req, res) => {
         res.redirect('/login');
     });
 });
+
+// Handle room creation
+router.post("/room", isAuthenticated, async (req, res) => {
+    const { roomname, imgUrl } = req.body;
+    try {
+      const newRoom = new Room({
+        name: roomname,
+        img: imgUrl,
+      });
+      await newRoom.save();
+      res.status(201).send("New room successfully created.");
+    } catch (error) {
+      console.error("Error creating room:", error);
+      res.status(500).send("Error creating room.");
+    }
+  });
+  
+  // Handle post creation
+  router.post("/post", isAuthenticated, async (req, res) => {
+    const { title, post, room } = req.body;
+    try {
+      const newPost = new Post({
+        user: req.session.user._id,
+        title,
+        post,
+        date: new Date(),
+        room,
+        up: 0,
+        down: 0,
+      });
+      await newPost.save();
+      res.status(201).send("New post successfully created.");
+    } catch (error) {
+      console.error("Error creating post:", error);
+      res.status(500).send("Error creating post.");
+    }
+  });
+  
+  // Handle commenting
+  router.post("/reply", isAuthenticated, async (req, res) => {
+    try {
+      const { postId, reply } = req.body;
+  
+      const post = await Post.findById(postId);
+  
+      if (!post) {
+        return res.status(404).send("Post not found.");
+      }
+  
+      const newReply = new Reply({
+        user: req.session.user._id,
+        reply,
+        date: new Date(),
+        up: 0,
+        down: 0,
+      });
+  
+      await newReply.save();
+      post.replies.push(newReply._id);
+      await post.save();
+  
+      res.status(201).send("New reply successfully created.");
+    } catch (error) {
+      console.error("Error replying to post:", error);
+      res.status(500).send("Error replying to post.");
+    }
+  });
 
 module.exports = router;
