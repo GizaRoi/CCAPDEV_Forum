@@ -5,8 +5,7 @@ const User = require('./Users.js');
 
 const ChildReplySchema = new Schema({
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users',
+        type: String,
         required: true
     },
     reply: {
@@ -17,14 +16,16 @@ const ChildReplySchema = new Schema({
         type: Date,
         default: Date.now
     },
-    up: {type: Number},
-    down: {type: Number}
+    repliedTo: {type: Schema.Types.ObjectId, ref:'replies'},
+    up: {type: Number,
+        default: 0},
+    down: {type: Number,
+        default: 0}
 });
 
 const ReplySchema = new Schema({
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users',
+        type: String,
         required: true
     },
     reply: {
@@ -35,15 +36,16 @@ const ReplySchema = new Schema({
         type: Date,
         default: Date.now
     },
-    replies: [{type: Schema.Types.ObjectId, ref: 'child_replies'}],
-    up: {type: Number},
-    down: {type: Number}
+    repliedTo: {type: Schema.Types.ObjectId, ref: 'posts'},
+    up: {type: Number,
+        default: 0},
+    down: {type: Number,
+        default: 0}
 });
 
 const PostSchema = new Schema({
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users',
+        type: String,
         required: true
     },
     title: {
@@ -55,8 +57,7 @@ const PostSchema = new Schema({
         default: Date.now
     },
     room: {
-        type: Schema.Types.ObjectId,
-        ref: 'rooms',
+        type: String,
         required: true,
     },
     post: {
@@ -64,12 +65,13 @@ const PostSchema = new Schema({
         required: true
     },
     up: {
-        type: Number
+        type: Number,
+        default: 0
     },
     down: {
-        type: Number
+        type: Number,
+        default: 0
     },
-    replies: [{type: Schema.Types.ObjectId, ref:'replies'}]
 });
 
 const Post = model('posts', PostSchema);

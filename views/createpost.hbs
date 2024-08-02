@@ -8,12 +8,12 @@
                         <h1>Create a Post</h1>
                     </div>
                     <div class="form-container">
-                        <form>
+                        <form action="/createpost" method="POST">
                             <input type="text" name="title" class="title-textarea" placeholder="Title*"> <br>
                             <input type="search" name="room" class="room-searcharea" placeholder="+ Add into a room"> <br>
                             <textarea name="content" placeholder="Body"></textarea>
                             <div class="submit-container">
-                                <input type="submit" action="" class="submitBtn" value="Post">
+                                <input type="submit" class="submitBtn" value="Post" id="createpost" method="post">
                             </div>
                         </form>
                         </div>

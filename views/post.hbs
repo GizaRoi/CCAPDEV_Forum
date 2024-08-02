@@ -1,19 +1,36 @@
-<body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid header">
-            <div class="logo">
-                <a class="navbar-brand" href="#">
-                    <img src="images/1.png" alt="FoRoom" width="90px" height="90px">
-                </a>
+        <div class="body">
+
+        <div class="top-body">
+        <div class="post-container">
+            <a href="/home"><span class="return"><ion-icon name="return-up-back-outline"></ion-icon></span></a>
+            <div class="post-header">
+                <div class="op-pfp"><img id="pfp5" src="{{userImage}}"/></div>
+                <div class="post-info">
+                    <div class="op-username">by <a href="/profile">{{user}}</a> • {{date}}</div>
+                    <div class="room">
+                        <img id="fr1" src="{{roomImage}}"/>
+                        <span class="roomname">{{room}}</span>
+                    </div>
+                </div>
             </div>
+            <div class="post-content">
+                <div class="post-title">{{postTitle}}</div>
+                <div class="post-content">{{content}}
+                </div>
+            </div>
+            <div class="post-footer">
+                <div class="votes">
+                    <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{up}}</span>
+                    <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{down}}</span>
+                    <ion-icon name="chatbubble-outline"></ion-icon><span class="replynum">5</span>
+                </div>
 
                 <div class="editdelete">
-                    <a href="/editpost">Edit</a> 
+                    <a href="edithtml">Edit</a> 
                     <span class="delete">Delete</span>
                 </div>
             </div>
         </div>
-
 
         <div class="reply-box">
             <div class="replyarea">
@@ -24,6 +41,7 @@
                     </div>
                 </form>
             </div>
+        </div>
 
 
         <div class="replylabel">
@@ -38,7 +56,7 @@
                     <div class="reply-header">
                         <div class="op-pfp"><img id="pfp5" src="images/prof-4.png"/></div>
                         <div class="reply-info">
-                            <div class="op-username"><a href="/profile">@azaVelasquez</a> • June 4, 2024</div>
+                            <div class="op-username"><a href="profile.html">@azaVelasquez</a> • June 4, 2024</div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -52,8 +70,8 @@
                             <ion-icon name="chatbubble-outline"></ion-icon><span class="replynum">2</span>
                         </div>
         
-                        <div class="editdelete" id="editdelete">
-                            <a href="/editcomment">Edit</a> 
+                        <div class="editdelete">
+                            <a href="editcomment.html">Edit</a> 
                             <span class="delete">Delete</span>
                         </div>
                     </div>
@@ -66,7 +84,7 @@
                         <div class="reply-header">
                             <div class="op-pfp"><img id="pfp5" src="images/prof-3.png"/></div>
                             <div class="reply-info">
-                                <div class="op-username"><a href="/profile">@vince34</a> • June 4, 2024</div>
+                                <div class="op-username"><a href="profile.html">@vince34</a> • June 4, 2024</div>
                             </div>
                         </div>
                         <div class="post-content">
@@ -81,7 +99,7 @@
                             </div>
             
                             <div class="editdelete">
-                                <a href="/editcomment">Edit</a> 
+                                <a href="editcomment.html">Edit</a> 
                                 <span class="delete">Delete</span>
                             </div>
                         </div>
@@ -94,7 +112,7 @@
                         <div class="reply-header">
                             <div class="op-pfp"><img id="pfp5" src="images/prof-5.png"/></div>
                             <div class="reply-info">
-                                <div class="op-username"><a href="/profile">@juan01</a> • June 4, 2024</div>
+                                <div class="op-username"><a href="profile.html">@juan01</a> • June 4, 2024</div>
                             </div>
                         </div>
                         <div class="post-content">
@@ -109,7 +127,7 @@
                             </div>
             
                             <div class="editdelete">
-                                <a href="/editcomment">Edit</a> 
+                                <a href="editcomment.html">Edit</a> 
                                 <span class="delete">Delete</span>
                             </div>
                         </div>
@@ -117,15 +135,13 @@
                 </div>
 
             </div>
-        </div>
-    </nav>
 
             <div class="reply1">
                 <div class="reply-container">
                     <div class="reply-header">
                         <div class="op-pfp"><img id="pfp5" src="images/prof-2.png"/></div>
                         <div class="reply-info">
-                            <div class="op-username"><a href="/profile">@roiMark</a> • June 4, 2024</div>
+                            <div class="op-username"><a href="profile.html">@roiMark</a> • June 4, 2024</div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -140,7 +156,7 @@
                         </div>
         
                         <div class="editdelete">
-                            <a href="/editcomment">Edit</a> 
+                            <a href="editcomment.html">Edit</a> 
                             <span class="delete">Delete</span>
                         </div>
                     </div>
@@ -153,7 +169,7 @@
                         <div class="reply-header">
                             <div class="op-pfp"><img id="pfp5" src="images/prof-1.png"/></div>
                             <div class="reply-info">
-                                <div class="op-username"><a href="/profile">@gabLlenarex12</a> • June 4, 2024</div>
+                                <div class="op-username"><a href="profile.html">@gabLlenarex12</a> • June 4, 2024</div>
                             </div>
                         </div>
                         <div class="post-content">
@@ -168,7 +184,7 @@
                             </div>
             
                             <div class="editdelete">
-                                <a href="/editcomment">Edit</a> 
+                                <a href="editcomment.html">Edit</a> 
                                 <span class="delete">Delete</span>
                             </div>
                         </div>
@@ -178,89 +194,7 @@
             </div>
         </div>
 
-        <div class="top-body">
-            <div class="post-container">
-                <a href="home.html"><span class="return"><ion-icon name="return-up-back-outline"></ion-icon></span></a>
-                <div class="post-header">
-                    <div class="op-pfp"><img id="pfp5" src="{{post.roomImage}}"/></div>
-                    <div class="post-info">
-                        <div class="op-username">by <a href="profile.html">@{{post.author}}</a> • {{post.date}}</div>
-                        <div class="room">
-                            <img id="fr1" src="{{post.roomImage}}"/>
-                            <span class="roomname">{{post.roomName}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <div class="post-title">{{post.title}}</div>
-                    <div class="post-content">{{post.content}}</div>
-                </div>
-                <div class="post-footer">
-                    <div class="votes">
-                        <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{post.upvotes}}</span>
-                        <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{post.downvotes}}</span>
-                    </div>
-                    <div class="replies">
-                        <ion-icon name="chatbubble-ellipses-outline"></ion-icon> <span class="reply-count">{{post.replies}}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="replies-container">
-                <h3>Replies</h3>
-                {{#each replies}}
-                <div class="reply">
-                    <div class="reply-header">
-                        <div class="reply-pfp"><img src="{{profilePic}}"/></div>
-                        <div class="reply-info">
-                            <div class="reply-author">by <a href="profile.html">@{{author}}</a> • {{date}}</div>
-                        </div>
-                    </div>
-                    <div class="reply-content">
-                        <div class="reply-text">{{content}}</div>
-                    </div>
-                    <div class="reply-footer">
-                        <div class="votes">
-                            <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{upvotes}}</span>
-                            <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{downvotes}}</span>
-                        </div>
-                        <div class="replies">
-                            <ion-icon name="chatbubble-ellipses-outline"></ion-icon> <span class="reply-count">{{replies}}</span>
-                        </div>
-                    </div>
-                    {{#if children}}
-                    <div class="child-replies">
-                        {{#each children}}
-                        <div class="child-reply">
-                            <div class="reply-header">
-                                <div class="reply-pfp"><img src="{{profilePic}}"/></div>
-                                <div class="reply-info">
-                                    <div class="reply-author">by <a href="profile.html">@{{author}}</a> • {{date}}</div>
-                                </div>
-                            </div>
-                            <div class="reply-content">
-                                <div class="reply-text">{{content}}</div>
-                            </div>
-                            <div class="reply-footer">
-                                <div class="votes">
-                                    <ion-icon name="chevron-up-outline"></ion-icon> <span class="upvote">{{upvotes}}</span>
-                                    <ion-icon name="chevron-down-outline"></ion-icon> <span class="downvote">{{downvotes}}</span>
-                                </div>
-                                <div class="replies">
-                                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon> <span class="reply-count">{{replies}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                    {{/if}}
-                </div>
-                {{/each}}
-            </div>
         </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

@@ -4,11 +4,14 @@ const model = mongoose.model;
 const {Post, Reply, ChildReply} = require('./Posts');
 
 const RoomSchema = new Schema({
-    name: {
+    room: {
         type: String,
         required: true
     },
-    img: {
+    members: {
+        type: Number
+    },
+    pic: {
         type: String,
         required: true
     },

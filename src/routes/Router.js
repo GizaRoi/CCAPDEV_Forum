@@ -141,22 +141,71 @@ router.get('/createpost', (req, res) => {
     });
 });
 
-router.get('/post', (req, res) => {
+router.post('/createpost', async (req, res) => {
+    const post = Post({
+        user: req.session.user.username,
+        title: req.body.title,
+        room: req.body.room,
+        post: req.body.content
+    })
+
+    await post.save();
+    res.redirect('/home');
+});
+
+
+router.get('/post/:id', async (req, res) => {
+    var post = await Post.findOne({_id: req.params.id});
+    const user = await User.findOne({ username: post.user });
+    const room = await Room.findOne({room: post.room});
+
+    var postwithDetails = {
+            ...post.toObject(),
+            userImage: 'images/' + user.profilePicture,
+            roomImage: room.pic,
+            content: post['post'],
+            postTitle: post['title']
+        };  
+
+    post = postwithDetails;
+
+    console.log(postwithDetails);
+
     res.render('post', {
-        rooms: jsonData.rooms,
-        replies: jsonData.replies,
-        children: jsonData.children,
         layout: 'postlayout',
-        title: 'Post'
+        title: 'Post',
+        userImage: post.userImage,
+        user: post.user,
+        date: post.date,
+        roomImage: post.room,
+        room: post.room,
+        postTitle: post.title,
+        content: post.content,
+        up: post.up,
+        down: post.down
     });
 });
 
 
 // Logged in home
-router.get('/home', isAuthenticated, (req, res) => {
+router.get('/home', isAuthenticated, async(req, res) => {
+    const posts = await Post.find().exec();
+
+    var postsWithUserDetails = await Promise.all(posts.map(async (post) => {
+        const user = await User.findOne({ username: post.user }).exec();
+        const room = await Room.findOne({room: post.room}).exec();
+        return {
+            ...post.toObject(),
+            userImage: 'images/' + user.profilePicture,
+            roomImage: room.pic,
+            id: post['_id'],
+            content: post['post']
+        };  
+    }));
+    
     res.render('home', {
         popularPosts: jsonData.popularPosts,
-        posts: jsonData.posts,
+        posts: postsWithUserDetails,
         popularRooms: jsonData.popularRooms,
         layout: 'homelayout',
         title: 'Homepage',
@@ -164,6 +213,7 @@ router.get('/home', isAuthenticated, (req, res) => {
         username: req.session.user.username,
         profilePicture: req.session.user.profilePicture
     });
+
 });
 
 // What's popular
@@ -288,36 +338,36 @@ router.get('/profile', isAuthenticated, async (req, res) => {
 
 router.get('/profile/:id', async (req, res) => {
     const userId = req.params.id;
-  
+
     try {
-      const user = await User.findById(userId);
-  
-      if (!user) {
+        const user = await User.findById(userId);
+
+        if (!user) {
         return res.status(404).render('error', {
-          title: 'User Not Found',
-          message: 'The user you are looking for does not exist.'
+            title: 'User Not Found',
+            message: 'The user you are looking for does not exist.'
         });
-      }
-  
-      res.render('profile2', {
+        }
+
+        res.render('profile2', {
         layout: 'profilelayout',
         user: {
-          _id: user._id.toString(),
-          username: user.username,
-          profilePicture: user.profilePicture,
-          bio: user.bio
+            _id: user._id.toString(),
+            username: user.username,
+            profilePicture: user.profilePicture,
+            bio: user.bio
         },
         title: `${user.username}'s Profile`
-      });
+        });
     } catch (error) {
-      console.error('Error fetching user profile:', error);
-      res.status(500).render('error', {
+        console.error('Error fetching user profile:', error);
+        res.status(500).render('error', {
         title: 'Error',
         message: 'An error occurred while fetching the user profile. Please try again.'
-      });
+        });
     }
-  });
-  
+    });
+
 
 
 
@@ -375,23 +425,23 @@ router.get('/logout', (req, res) => {
 router.post("/room", isAuthenticated, async (req, res) => {
     const { roomname, imgUrl } = req.body;
     try {
-      const newRoom = new Room({
+        const newRoom = new Room({
         name: roomname,
         img: imgUrl,
-      });
-      await newRoom.save();
-      res.status(201).send("New room successfully created.");
+        });
+        await newRoom.save();
+        res.status(201).send("New room successfully created.");
     } catch (error) {
-      console.error("Error creating room:", error);
-      res.status(500).send("Error creating room.");
+        console.error("Error creating room:", error);
+        res.status(500).send("Error creating room.");
     }
-  });
-  
+});
+
   // Handle post creation
-  router.post("/post", isAuthenticated, async (req, res) => {
+router.post("/post", isAuthenticated, async (req, res) => {
     const { title, post, room } = req.body;
     try {
-      const newPost = new Post({
+        const newPost = new Post({
         user: req.session.user._id,
         title,
         post,
@@ -399,43 +449,43 @@ router.post("/room", isAuthenticated, async (req, res) => {
         room,
         up: 0,
         down: 0,
-      });
-      await newPost.save();
-      res.status(201).send("New post successfully created.");
+        });
+        await newPost.save();
+        res.status(201).send("New post successfully created.");
     } catch (error) {
-      console.error("Error creating post:", error);
-      res.status(500).send("Error creating post.");
+        console.error("Error creating post:", error);
+        res.status(500).send("Error creating post.");
     }
-  });
-  
-  // Handle commenting
-  router.post("/reply", isAuthenticated, async (req, res) => {
-    try {
-      const { postId, reply } = req.body;
-  
-      const post = await Post.findById(postId);
-  
-      if (!post) {
-        return res.status(404).send("Post not found.");
-      }
-  
-      const newReply = new Reply({
-        user: req.session.user._id,
-        reply,
-        date: new Date(),
-        up: 0,
-        down: 0,
-      });
-  
-      await newReply.save();
-      post.replies.push(newReply._id);
-      await post.save();
-  
-      res.status(201).send("New reply successfully created.");
-    } catch (error) {
-      console.error("Error replying to post:", error);
-      res.status(500).send("Error replying to post.");
-    }
-  });
+    });
 
-module.exports = router;
+    // Handle commenting
+    router.post("/reply", isAuthenticated, async (req, res) => {
+    try {
+        const { postId, reply } = req.body;
+
+        const post = await Post.findById(postId);
+
+        if (!post) {
+        return res.status(404).send("Post not found.");
+        }
+
+        const newReply = new Reply({
+            user: req.session.user._id,
+            reply,
+            date: new Date(),
+            up: 0,
+            down: 0,
+        });
+
+        await newReply.save();
+        post.replies.push(newReply._id);
+        await post.save();
+
+        res.status(201).send("New reply successfully created.");
+    } catch (error) {
+        console.error("Error replying to post:", error);
+        res.status(500).send("Error replying to post.");
+    }
+    });
+
+    module.exports = router;

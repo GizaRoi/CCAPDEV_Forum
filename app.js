@@ -29,7 +29,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.set("view cache", false);
-server.use(express.static('public'));
+server.use(express.static(path.join(__dirname, 'public')));
 
 // Session configuration
 server.use(session({
