@@ -212,13 +212,18 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Handle customization
 router.post('/customize', isAuthenticated, async (req, res) => {
     const { profilepicture, bio } = req.body;
+
     try {
         const user = await User.findById(req.session.user._id);
-        user.profilePicture = profilepicture;
-        user.bio = bio;
+
+        // Store only the filename for the profile picture
+        if (profilepicture) {
+            user.profilePicture = profilepicture; // Store the filename only
+        }
+        user.bio = bio || user.bio;
+
         await user.save();
         req.session.user = user; // Update session with new user data
         res.redirect('/profile');
@@ -233,6 +238,7 @@ router.post('/customize', isAuthenticated, async (req, res) => {
         });
     }
 });
+
 
 // Handle login
 router.post('/login', async (req, res) => {

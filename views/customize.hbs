@@ -16,6 +16,7 @@
                 <div class="upload-photo">
                     <label for="profilepicture">Profile Picture URL</label>
                     <input type="text" id="profilepicture" name="profilepicture" class="input-field" placeholder="Profile Picture URL">
+                
                 </div>
 
                 <div class="centered-text">
@@ -45,15 +46,18 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
     <script>
-        // JavaScript to handle image selection
-        document.querySelectorAll('.selectable').forEach(img => {
-            img.addEventListener('click', function() {
-                document.getElementById('profilepicture').value = this.src;
-                document.querySelectorAll('.selectable').forEach(el => el.classList.remove('selected'));
-                this.classList.add('selected');
-            });
-        });
-    </script>
+document.querySelectorAll('.selectable').forEach(img => {
+    img.addEventListener('click', function() {
+        const filename = this.src.split('/').pop();
+        console.log('Selected filename:', filename); // Debugging line
+        document.getElementById('profilepicture').value = filename;
+        document.querySelectorAll('.selectable').forEach(el => el.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+</script>
+
     
     <style>
         .selectable {
@@ -63,7 +67,7 @@
         }
         
         .selectable.selected {
-            border-color: #007bff;
+            border-color: var(--accent-color);
         }
     </style>
 </body>
