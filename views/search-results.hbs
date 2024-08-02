@@ -27,41 +27,7 @@
                 {{/if}}
             </div>
 
-            <!-- Post Results -->
-            <div class="search-results">
-                <h2>Posts</h2>
-                {{#if posts.length}}
-                    <div class="post-results">
-                        {{#each posts}}
-                            <button type="button" class="btn post-container">
-                                <div class="lineh"></div>
-                                <div class="post-header">
-                                    <div class="op-pfp">
-                                        <img id="pfp5" src="{{profilePicture}}" alt="{{username}}'s Profile Picture"/>
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="op-username">
-                                            by <a href="/profile/{{author._id}}">{{username}}</a> • {{date}}
-                                        </div>
-                                        <div class="room">
-                                            <img id="fr1" src="{{roomImage}}" alt="Room Image"/>
-                                            <span class="roomname">{{room}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post-content">
-                                    <a href="/post/{{_id}}" style="text-decoration: none;">
-                                        <div class="post-title">{{title}}</div>
-                                        <div class="post-description">{{description}}</div>
-                                    </a>
-                                </div>
-                                <!-- Footer removed -->
-                            </button>
-                        {{/each}}
-                    </div>
-                {{else}}
-                    <p>No posts found.</p>
-                {{/if}}
+            
             </div>
         </div>  
     </div>

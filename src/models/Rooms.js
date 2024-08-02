@@ -12,8 +12,7 @@ const RoomSchema = new Schema({
         type: Number
     },
     pic: {
-        type: String,
-        required: true
+        type: String
     },
     posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
